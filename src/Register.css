@@ -1,0 +1,177 @@
+body{
+    margin:0;
+    padding:0;
+    font-family:'Poppins',sans-serif;
+}
+
+.register-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        135deg,
+        #4f46e5,
+        #2563eb,
+        #06b6d4
+    );
+    position:relative;
+}
+
+/* Floating Background */
+
+.register-container::before{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.15);
+    top:-120px;
+    left:-120px;
+}
+
+.register-container::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    bottom:-100px;
+    right:-100px;
+}
+
+/* Glass Card */
+
+.register-card{
+    width:430px;
+    padding:40px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.18);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.2);
+
+    color:white;
+
+    position:relative;
+    z-index:2;
+}
+
+.register-card h1{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    margin-bottom:30px;
+    color:#e0e7ff;
+    font-size:15px;
+}
+
+.register-form{
+    display:flex;
+    flex-direction:column;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.register-form input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+    font-size:15px;
+
+    outline:none;
+
+    box-sizing:border-box;
+
+    transition:0.3s;
+}
+
+.register-form input::placeholder{
+    color:#dbeafe;
+}
+
+.register-form input:focus{
+    background:rgba(255,255,255,0.22);
+
+    transform:scale(1.02);
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,0.3);
+}
+
+.error-text{
+    color:#ffd5d5;
+    font-size:13px;
+    margin-top:6px;
+    margin-left:4px;
+}
+
+/* Button */
+
+.register-form button{
+    margin-top:15px;
+    padding:15px;
+
+    border:none;
+    border-radius:12px;
+
+    background:white;
+    color:#2563eb;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.register-form button:hover{
+
+    transform:translateY(-3px);
+
+    background:#f8fafc;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.2);
+
+}
+
+/* Small animation */
+
+.register-card{
+    animation:fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}

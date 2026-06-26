@@ -1,0 +1,151 @@
+ /* Layout and background */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.home-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Animated gradient background */
+  background: linear-gradient(-45deg, #0f172a, #4f46e5, #1e3a8a);
+  background-size: 400% 400%;
+  animation: gradientBg 15s ease infinite;
+  overflow: hidden;
+}
+@keyframes gradientBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating blurred circles (for decorative effect) */
+.floating {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #93c5fd; /* light blue */
+  opacity: 0.15;
+  filter: blur(100px);
+  animation: float 6s ease-in-out infinite alternate;
+}
+.circle1 {
+  width: 500px; height: 500px;
+  top: -100px; left: -100px;
+}
+.circle2 {
+  width: 300px; height: 300px;
+  bottom: -80px; right: -120px;
+}
+.circle3 {
+  width: 400px; height: 400px;
+  bottom: 200px; left: 50%;
+  transform: translateX(-50%);
+}
+@keyframes float {
+  to { transform: translateY(-20px); }
+}
+
+/* Glassmorphism card */
+.home-card {
+  position: relative;
+  z-index: 1;
+  width: 480px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  color: #ffffff;
+}
+
+/* Title and text */
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.description {
+  font-size: 18px;
+  color: #e0e7ff;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Feature badges (pills) */
+.features {
+  margin-bottom: 30px;
+}
+.badge {
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 6px 14px;
+  font-size: 14px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+}
+
+/* Buttons layout */
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260px;
+  padding: 18px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+.button-title {
+  font-size: 17px;
+  font-weight: bold;
+}
+.button-subtitle {
+  font-size: 14px;
+}
+
+/* Register button: prominent */
+.btn-register {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+.btn-register:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+/* Login button: lighter / ghost style */
+.btn-login {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+.btn-login:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .home-card {
+    width: 90%;
+    padding: 30px;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+  }
+}

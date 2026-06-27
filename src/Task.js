@@ -1,0 +1,420 @@
+import React, { useState, useEffect } from "react";
+import "./Task.css";
+import { Link } from "react-router-dom";
+
+function Task() {
+
+    const [tasks, setTasks] = useState([]);
+    const [showForm, setShowForm] = useState(false);
+    const [editingId, setEditingId] = useState(null);
+
+    const getTasks = async () => {
+
+    try{
+        const userId = localStorage.getItem("userId");
+        const response = await fetch(
+            `http://localhost:5000/api/task/${userId}`
+        );
+
+        const data = await response.json();
+
+        setTasks(data);
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+};
+
+useEffect(() => {
+
+    getTasks();
+
+}, []);
+    const [taskName, setTaskName] = useState("");
+    const [subject, setSubject] = useState("");
+    const [deadline, setDeadline] = useState("");
+    const [status, setStatus] = useState("");
+    const [pdfFile, setpdfFile] = useState(null);
+
+    const handleAddTask = async () => {
+
+    if (
+        taskName === "" ||
+        subject === "" ||
+        deadline === "" ||
+        status === "" ||
+        pdfFile === ""
+    ) {
+        return;
+    }
+
+    try {
+
+        if (editingId) {
+
+            await fetch(
+
+                `http://localhost:5000/api/task/update/${editingId}`,
+
+                {
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                
+                    body: JSON.stringify({
+                        
+                        taskName,
+                        subject,
+                        deadline,
+                        status
+
+                    })
+
+                }
+
+            );
+
+        }
+
+        else {
+            const userId = localStorage.getItem("userId");
+            await fetch(
+
+                "http://localhost:5000/api/task/add",
+
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        userId,
+                        taskName,
+                        subject,
+                        deadline,
+                        status
+
+                    })
+
+                }
+
+            );
+
+        }
+
+        getTasks();
+
+        setTaskName("");
+        setSubject("");
+        setDeadline("");
+        setStatus("");
+        setEditingId(null);
+        setShowForm(false);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+};
+const handleEdit = (task) => {
+      setEditingId(task._id);
+      setTaskName(task.taskName);
+      setSubject(task.subject);
+      setDeadline(task.deadline);
+      setStatus(task.status);
+      setShowForm(true);
+      setpdfFile(null);
+};
+const handleDelete = async (id) => {
+
+    try {
+
+        await fetch(
+
+            `http://localhost:5000/api/task/delete/${id}`,
+
+            {
+                method: "DELETE"
+            }
+
+        );
+
+        getTasks();
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+};
+
+    return (
+
+        <div className="task-page">
+
+            {/* SIDEBAR */}
+
+            <div className="sidebar">
+
+                <h2 className="logo">
+                    Smart Study Planner
+                </h2>
+
+                <ul className="menu">
+
+                 <Link to="/Dashbord">   
+                    <li>Dashbord</li>
+                 </Link>
+
+                 <Link to="/Subject">   
+                    <li>Subjects</li>
+                 </Link>
+
+                    <li className="active">
+                        Tasks
+                    </li>
+
+                <Link to="/Timetable">
+                    <li>Timetable</li>
+                </Link>    
+
+                  <Link to="/Progress">
+                    <li>Progress</li>
+                  </Link>
+
+                  <Link to="/Suggestions">
+                    <li>AI Suggestions</li>
+                  </Link>
+
+                  <Link to="/Calender">
+                    <li>Calender</li>
+                  </Link>
+
+                  <Link to="/Settings">
+                    <li>Settings</li>
+                  </Link>
+                  
+                </ul>
+
+            </div>
+
+            {/* MAIN CONTENT */}
+
+            <div className="main-content">
+
+                {/* TOP SECTION */}
+
+                <div className="top-section">
+
+                    <div>
+
+                        <h1>
+                            My Tasks
+                        </h1>
+
+                        <p>
+                            Manage your study tasks and deadlines.
+                        </p>
+                    </div>
+                    <button
+        className="add-task-btn"
+        onClick={() => {
+
+            setShowForm(!showForm);
+            setEditingId(null);
+            setTaskName("");
+            setSubject("");
+            setDeadline("");
+            setStatus("");
+            setpdfFile(null);
+
+        }}
+    >
+        + Add Task
+    </button>
+                </div>
+
+                {/* CONTENT */}
+
+                <div className="content-section">
+
+                    {/* TABLE */}
+
+                    <div className="table-section">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Task Name</th>
+                                    <th>Subject</th>
+                                    <th>Deadline</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {tasks.length === 0 ? (
+
+                                    <tr>
+                                        <td
+                                            colSpan="6"
+                                            className="empty-message">
+                                            No tasks added yet
+                                        </td>
+                                    </tr>
+                                ) : (
+
+                                    tasks.map((task, index) => (
+
+                                        <tr key={index}>
+                                            <td> {index + 1} </td>
+                                            <td> {task.taskName} </td>
+                                            <td> {task.subject} </td>
+                                            <td> {task.deadline} </td>
+                                            <td>
+                                                <span
+                                                    className={`status ${task.status}`}>
+                                                    {task.status}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <button className="edit-btn"
+                                                        onClick={() => handleEdit(task)}> Edit
+                                                </button>
+
+                                                <button className="delete-btn"
+                                                        onClick={() => handleDelete(task._id)}>
+                                                    Delete
+
+                                                </button>
+
+                                            </td>
+
+                                        </tr>
+
+                                    ))
+
+                                )}
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    {/* FORM */}
+                    {showForm && ( 
+                    <div className="form-section">
+
+                        <h3>Add New Task</h3>
+
+                        <input
+                            type="text"
+                            placeholder="Enter task name"
+                            value={taskName}
+                            onChange={(e) =>
+                                setTaskName(e.target.value)
+                            }
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Enter subject"
+                            value={subject}
+                            onChange={(e) =>
+                                setSubject(e.target.value)
+                            }
+                        />
+
+                        <input
+                            type="date"
+                            value={deadline}
+                            onChange={(e) =>
+                                setDeadline(e.target.value)
+                            }
+                        />
+
+                        <input type="file"
+                               accept=".pdf"
+                               onChange={(e) =>
+                                setpdfFile(e.target.value)
+                               }
+                        />
+
+                        <select
+                            value={status}
+                            onChange={(e) =>
+                                setStatus(e.target.value)
+                            }
+                        >
+
+                            <option value="">
+                                Select Status
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                            <option value="Overdue">
+                                Overdue
+                            </option>
+
+                        </select>
+
+                        <button
+                            className="save-btn"
+                            onClick={handleAddTask}
+                        >
+
+                            Save Task
+                            {editingId ? "Update Task" : "Save Task"}
+                        </button>
+                            <div className="status-guide">
+
+    <p>
+         Pending = Not completed yet
+    </p>
+
+    <p>
+         Completed = Finished task
+    </p>
+
+    <p>
+         Overdue = Deadline passed
+    </p>
+
+</div>
+                    </div>
+                    )}
+                </div>
+
+            </div>
+
+        </div>
+    );
+}
+
+export default Task;

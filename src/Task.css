@@ -1,0 +1,224 @@
+ body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef4ff;
+}
+
+.task-page{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:250px;
+    background:linear-gradient(
+        180deg,
+        #24124d,
+        #4f2ab5
+    );
+
+    color:white;
+    padding:30px 20px;
+}
+
+.logo h2{
+    margin:0;
+    margin-bottom:10px;
+}
+
+.menu{
+    list-style:none;
+    padding:0;
+}
+
+.menu li{
+    padding:16px;
+    margin-bottom:15px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+    font-size: 17px;
+}
+
+.menu li:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+.active{
+   background:#2563eb;
+   color:white;
+}
+
+/* MAIN CONTENT */
+
+.main-content{
+    flex:1;
+    padding:40px;
+}
+
+.top-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.top-section h1{
+    margin:0;
+    color:#24124d;
+}
+
+.top-section p{
+    color:#666;
+}
+
+/* CONTENT */
+
+.content-section{
+    display:flex;
+    gap:25px;
+}
+
+/* TABLE */
+
+.table-section{
+    flex:2;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    text-align:left;
+    padding:18px;
+    color:#444;
+    border-bottom:1px solid #eee;
+}
+
+td{
+    padding:18px;
+    border-bottom:1px solid #f1f1f1;
+}
+
+.empty-message{
+    text-align:center;
+    padding:40px;
+    color:#888;
+}
+
+/* STATUS */
+
+.status{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+.Pending{
+    background:#fff3d6;
+    color:#ff9800;
+}
+
+.Completed{
+    background:#e3ffe8;
+    color:green;
+}
+
+.Overdue{
+    background:#ffe5e5;
+    color:red;
+}
+
+/* BUTTONS */
+
+.edit-btn{
+    background:#ede7ff;
+    color:#6d4aff;
+    border:none;
+    padding:8px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-right:10px;
+}
+
+.delete-btn{
+    background:#ffe7e7;
+    color:red;
+    border:none;
+    padding:8px 16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* FORM */
+
+.form-section{
+    width:320px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.form-section h3{
+    margin:0;
+    color:#24124d;
+}
+
+.form-section input,
+.form-section select{
+
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+}
+
+.save-btn{
+    background:#6d4aff;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.add-task-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+}
+
+.add-task-btn:hover{
+    background:#1d4ed8;
+}
+
+.status-guide{
+    margin-top:10px;
+    font-size:14px;
+    color:#555;
+}
+
+.status-guide p{
+    margin:8px 0;
+}
+

@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef4ff;
+}
+
+.suggestions-page{
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar{
+    width: 250px;
+    background: linear-gradient(
+        180deg,
+        #24124d,
+        #4f2ab5
+    );
+    color: white;
+    padding: 30px 20px;
+}
+
+.logo h2{
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.menu{
+    list-style: none;
+    padding: 0;
+}
+
+.menu li{
+    padding: 16px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.menu li:hover{
+    background: rgba(255,255,255,0.15);
+}
+
+.active{
+    background: #2563ed;
+    color: white;
+}
+
+ /*MAIN CONTENT*/
+
+.main-content{
+    flex: 1;
+    padding: 40px;
+}
+
+.top-section{
+    margin-bottom: 35px;
+}
+
+.top-section h1{
+    margin: 0;
+    color: #24124d;
+    font-size: 40px;
+}
+
+.top-section p{
+    color: #666;
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+.suggestions-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.suggestion-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:
+    0 4px 15px rgba(0,0,0,0.08);
+
+    font-size:18px;
+    color:#24124d;
+    border-left:6px solid #2563ed;
+}

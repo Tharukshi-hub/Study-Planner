@@ -48,7 +48,7 @@ useEffect(() => {
         subject === "" ||
         deadline === "" ||
         status === "" ||
-        pdfFile === ""
+        !pdfFile
     ) {
         return;
     }
@@ -57,77 +57,60 @@ useEffect(() => {
 
         if (editingId) {
 
-            await fetch(
+    const formData = new FormData();
 
-                `http://localhost:5000/api/task/update/${editingId}`,
+    formData.append("taskName", taskName);
+    formData.append("subject", subject);
+    formData.append("deadline", deadline);
+    formData.append("status", status);
 
-                {
-                    method: "PUT",
+    if (pdfFile) {
+        formData.append("pdfFile", pdfFile);
+    }
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                
-                    body: JSON.stringify({
-                        
-                        taskName,
-                        subject,
-                        deadline,
-                        status
+    await fetch(
 
-                    })
+        `http://localhost:5000/api/task/update/${editingId}`,
 
-                }
-
-            );
-
+        {
+            method: "PUT",
+            body: formData
         }
 
-        else {
-            const userId = localStorage.getItem("userId");
-            await fetch(
+    );
 
-                "http://localhost:5000/api/task/add",
+}
 
-                {
-                    method: "POST",
+         else {
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+    const userId = localStorage.getItem("userId");
+    const formData = new FormData();
 
-                    body: JSON.stringify({
-                        userId,
-                        taskName,
-                        subject,
-                        deadline,
-                        status
+    formData.append("userId", userId);
+    formData.append("taskName", taskName);
+    formData.append("subject", subject);
+    formData.append("deadline", deadline);
+    formData.append("status", status);
+    formData.append("pdfFile", pdfFile);
 
-                    })
-
-                }
-
-            );
-
+    await fetch(
+        "http://localhost:5000/api/task/add",
+        {
+            method: "POST",
+            body: formData
         }
+    );
 
+}
         getTasks();
-
         setTaskName("");
         setSubject("");
         setDeadline("");
         setStatus("");
         setEditingId(null);
         setShowForm(false);
-
     }
-
-    catch (error) {
-
-        console.log(error);
-
-    }
-
+    catch (error) {console.log(error);}
 };
 const handleEdit = (task) => {
       setEditingId(task._id);
@@ -135,8 +118,8 @@ const handleEdit = (task) => {
       setSubject(task.subject);
       setDeadline(task.deadline);
       setStatus(task.status);
-      setShowForm(true);
       setpdfFile(null);
+      setShowForm(true);
 };
 const handleDelete = async (id) => {
 
@@ -167,15 +150,11 @@ const handleDelete = async (id) => {
     return (
 
         <div className="task-page">
-
             {/* SIDEBAR */}
-
             <div className="sidebar">
-
                 <h2 className="logo">
                     Smart Study Planner
                 </h2>
-
                 <ul className="menu">
 
                  <Link to="/Dashbord">   
@@ -221,16 +200,9 @@ const handleDelete = async (id) => {
                 {/* TOP SECTION */}
 
                 <div className="top-section">
-
                     <div>
-
-                        <h1>
-                            My Tasks
-                        </h1>
-
-                        <p>
-                            Manage your study tasks and deadlines.
-                        </p>
+                        <h1> My Tasks </h1>
+                        <p> Manage your study tasks and deadlines. </p>
                     </div>
                     <button
         className="add-task-btn"
@@ -251,28 +223,23 @@ const handleDelete = async (id) => {
                 </div>
 
                 {/* CONTENT */}
-
                 <div className="content-section">
-
                     {/* TABLE */}
-
                     <div className="table-section">
-
                         <table>
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Task Name</th>
                                     <th>Subject</th>
+                                    <th>Note</th>
                                     <th>Deadline</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-
                                 {tasks.length === 0 ? (
-
                                     <tr>
                                         <td
                                             colSpan="6"
@@ -288,6 +255,15 @@ const handleDelete = async (id) => {
                                             <td> {index + 1} </td>
                                             <td> {task.taskName} </td>
                                             <td> {task.subject} </td>
+                                            <td> {task.pdfFile ? (
+                                            <a href={`http://localhost:5000/uploads/${task.pdfFile}`}
+                                               target="_blank"
+                                               rel="noopener noreferrer"
+                                               className="view-note-btn"> View PDF
+                                            </a>
+                                            ) : (
+                                            <span>No PDF</span>
+                                            )}</td>
                                             <td> {task.deadline} </td>
                                             <td>
                                                 <span
@@ -303,29 +279,18 @@ const handleDelete = async (id) => {
                                                 <button className="delete-btn"
                                                         onClick={() => handleDelete(task._id)}>
                                                     Delete
-
                                                 </button>
-
                                             </td>
-
                                         </tr>
-
                                     ))
-
                                 )}
-
                             </tbody>
-
                         </table>
-
                     </div>
-
                     {/* FORM */}
                     {showForm && ( 
                     <div className="form-section">
-
                         <h3>Add New Task</h3>
-
                         <input
                             type="text"
                             placeholder="Enter task name"
@@ -334,7 +299,6 @@ const handleDelete = async (id) => {
                                 setTaskName(e.target.value)
                             }
                         />
-
                         <input
                             type="text"
                             placeholder="Enter subject"
@@ -343,7 +307,6 @@ const handleDelete = async (id) => {
                                 setSubject(e.target.value)
                             }
                         />
-
                         <input
                             type="date"
                             value={deadline}
@@ -351,70 +314,34 @@ const handleDelete = async (id) => {
                                 setDeadline(e.target.value)
                             }
                         />
-
                         <input type="file"
                                accept=".pdf"
                                onChange={(e) =>
-                                setpdfFile(e.target.value)
+                                setpdfFile(e.target.files[0])
                                }
                         />
-
                         <select
                             value={status}
                             onChange={(e) =>
                                 setStatus(e.target.value)
                             }
                         >
-
-                            <option value="">
-                                Select Status
-                            </option>
-
-                            <option value="Pending">
-                                Pending
-                            </option>
-
-                            <option value="Completed">
-                                Completed
-                            </option>
-
-                            <option value="Overdue">
-                                Overdue
-                            </option>
-
+                            <option value="">  Select Status </option>
+                            <option value="Pending"> Pending </option>
+                            <option value="Completed"> Completed </option>
+                            <option value="Overdue"> Overdue </option>
                         </select>
-
                         <button
                             className="save-btn"
-                            onClick={handleAddTask}
-                        >
-
-                            Save Task
+                            onClick={handleAddTask} >Save Task
                             {editingId ? "Update Task" : "Save Task"}
                         </button>
-                            <div className="status-guide">
-
-    <p>
-         Pending = Not completed yet
-    </p>
-
-    <p>
-         Completed = Finished task
-    </p>
-
-    <p>
-         Overdue = Deadline passed
-    </p>
-
-</div>
-                    </div>
-                    )}
                 </div>
-
-            </div>
-
+            )}
+         </div>
         </div>
-    );
-}
+     </div>
+      );
+     }
 
-export default Task;
+     export default Task;

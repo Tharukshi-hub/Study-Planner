@@ -7,6 +7,7 @@ const SubjectRoutes = require("./routes/Subject");
 const TaskRoutes = require("./routes/Task");
 const TimetableRoutes = require("./routes/Timetable");
 const path = require("path");
+const NotificationRoutes = require("./routes/Notification");
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use("/api/subject", SubjectRoutes);
 app.use("/api/task", TaskRoutes);
 app.use("/api/timetable", TimetableRoutes);
 app.use("/uploads", express.static(path.join(__dirname,"uploads")));
+app.use("/api/notification", NotificationRoutes);
 
 // Server
 

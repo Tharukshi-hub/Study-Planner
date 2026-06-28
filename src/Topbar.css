@@ -1,0 +1,81 @@
+.topbar{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding:0;
+}
+
+.topbar-icons{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.icon-btn{
+    width:36px;
+    height:36px;
+    font-size:18px;
+    border-radius:50%;
+}
+
+.badge{
+    position:absolute;
+    top:2px;
+    right:2px;
+    min-width:12px;
+    height:12px;
+    padding:1px 3px;
+    background:#ef4444;
+    color:white;
+    border-radius:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:8px;
+    font-weight:600;
+    line-height:1;
+    border:1px solid white;
+}
+
+.notification-dropdown{
+position:absolute;
+right:60px;
+top:55px;
+width:320px;
+background:white;
+border-radius:15px;
+padding:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+z-index:100;
+}
+
+.notify{
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+}
+
+.warning{
+background:#fff8d9;
+}
+
+.danger{
+background:#ffe3e3;
+}
+
+.profile-link{
+    font-size:22px;
+    text-decoration:none;
+}
+
+.dark-mode{
+background:#1c1c1c;
+color:white;
+}
+
+.notification-box{
+    position:relative;
+    display:flex;
+    align-items:center;
+
+}

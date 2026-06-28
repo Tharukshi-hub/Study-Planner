@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Dashbord.css";
 import { Link } from "react-router-dom";
+import Topbar from "./Topbar";
 
 function Dashbord() {
 
@@ -248,6 +249,7 @@ tasks.forEach((task) => {
 
             <div className="main-content">
 
+                <Topbar />
                 <h1 className="welcome-text">
                     Welcome, {userName} !!
                 </h1>

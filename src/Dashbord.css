@@ -10,6 +10,13 @@ body{
     min-height:100vh;
 }
 
+.dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
 /* SIDEBAR */
 
 .sidebar{
@@ -63,8 +70,8 @@ body{
 
 .welcome-text{
     color:#24124d;
-    margin-bottom:30px;
     font-size:42px;
+    margin:0;
 }
 
 .dashboard-grid{

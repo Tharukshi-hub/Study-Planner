@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Subject.css";
 import Sidebar from "./Sidebar";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 function Subject() {
     const [subjects, setSubjects] = useState([]);
@@ -142,11 +144,11 @@ const handleEdit = (subject) => {
                                         <td>
                                             <button className="edit-btn" 
                                                     onClick={() => handleEdit(subject)}>
-                                                Edit
+                                                <EditIcon />
                                             </button>
                                             <button className="delete-btn"  
                                                     onClick={() => handleDelete(subject._id)}>
-                                                Delete
+                                                 <DeleteIcon/>
                                             </button>
                                         </td>
                                     </tr>

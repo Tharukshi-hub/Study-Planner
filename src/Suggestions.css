@@ -89,3 +89,103 @@ body{
     color:#24124d;
     border-left:6px solid #2563ed;
 }
+
+.suggestions-container{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:25px;
+}
+
+.suggestion-card{
+
+    background:#fff;
+    border-radius:18px;
+    padding:20px 22px;
+    font-size:16px;
+    font-weight:500;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    border-left:8px solid #2563eb;
+
+}
+
+.suggestion-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* Progress Low */
+
+.low{
+
+    border-left-color:#ef4444;
+    background:#fff5f5;
+
+}
+
+/* Pending */
+
+.pending{
+
+    border-left-color:#f59e0b;
+    background:#fffaf0;
+
+}
+
+/* Hard Subject */
+
+.hard{
+
+    border-left-color:#7c3aed;
+    background:#f8f4ff;
+
+}
+
+/* High Priority */
+
+.priority{
+
+    border-left-color:#ec4899;
+    background:#fff0f8;
+
+}
+
+/* Deadline */
+
+.deadline{
+
+    border-left-color:#2563eb;
+    background:#eef6ff;
+
+}
+
+/* Excellent */
+
+.excellent{
+
+    border-left-color:#22c55e;
+    background:#f0fff5;
+
+}
+
+/* Default */
+
+.default{
+
+    border-left-color:#64748b;
+
+}
+
+/* No Suggestions */
+
+.none{
+
+    border-left-color:#94a3b8;
+    background:#f8fafc;
+
+}

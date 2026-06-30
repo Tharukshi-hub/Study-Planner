@@ -226,24 +226,29 @@ useEffect(() => {
                 </div>
                 <div className="suggestions-container">
 
-    {suggestions.map(
+    {suggestions.map((item, index) => {
 
-        (item, index) => (
+        let cardClass = "default";
 
+        if(item.includes("low")) cardClass = "low";
+        else if(item.includes("pending")) cardClass = "pending";
+        else if(item.includes("high-priority")) cardClass = "priority";
+        else if(item.includes("deadline")) cardClass = "deadline";
+        else if(item.includes("Excellent")) cardClass = "excellent";
+        else if(item.includes("hard subject")) cardClass = "hard";
+
+        return (
             <div
                 key={index}
-                className="suggestion-card"
+                className={`suggestion-card ${cardClass}`}
             >
-
                 {item}
-
             </div>
+        );
 
-        )
-
-    )}
-
-</div>
+    })}
+   
+                </div>
             </div>
         </div>
     );

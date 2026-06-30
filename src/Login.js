@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-
 import {
     FaEnvelope,
     FaLock,
@@ -137,7 +136,7 @@ Continue your smart learning journey and stay ahead with organised study plannin
 
 <img
 
-src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+src="./photo.webp"
 
 alt="student"
 

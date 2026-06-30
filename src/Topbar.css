@@ -1,81 +1,171 @@
-.topbar{
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    padding:0;
+/* FULL GLASS TOPBAR */
+.topbar-glass {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 12px 20px;
+
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.topbar-icons{
-    display:flex;
-    align-items:center;
-    gap:12px;
+/* inner layout */
+.topbar-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 18px;
 }
 
-.icon-btn{
-    width:36px;
-    height:36px;
-    font-size:18px;
-    border-radius:50%;
+/* glass buttons */
+.glass-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.25s ease;
+    color: #333;
 }
 
-.badge{
-    position:absolute;
-    top:2px;
-    right:2px;
-    min-width:12px;
-    height:12px;
-    padding:1px 3px;
-    background:#ef4444;
-    color:white;
-    border-radius:50px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:8px;
-    font-weight:600;
-    line-height:1;
-    border:1px solid white;
+.glass-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-.notification-dropdown{
-position:absolute;
-right:60px;
-top:55px;
-width:320px;
-background:white;
-border-radius:15px;
-padding:20px;
-box-shadow:0 5px 20px rgba(0,0,0,.2);
-z-index:100;
+/* notification wrapper */
+.notification-wrapper {
+    position: relative;
 }
 
-.notify{
-padding:12px;
-margin-bottom:10px;
-border-radius:10px;
+/* badge */
+.badge-glass {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    background: linear-gradient(135deg, #ff4d4d, #ff1a75);
+    color: white;
+
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 10px rgba(255,0,0,0.3);
 }
 
-.warning{
-background:#fff8d9;
+/* dropdown glass */
+.glass-dropdown {
+    position: absolute;
+    right: 0;
+    top: 55px;
+
+    width: 260px;
+    padding: 12px;
+
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+
+    animation: fadeIn 0.25s ease;
 }
 
-.danger{
-background:#ffe3e3;
+.glass-dropdown h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 
-.profile-link{
-    font-size:22px;
-    text-decoration:none;
+/* notifications */
+.notify-glass {
+    padding: 8px;
+    font-size: 13px;
+
+    border-radius: 10px;
+    margin-bottom: 6px;
+
+    background: rgba(255,255,255,0.5);
+    transition: 0.2s;
 }
 
-.dark-mode{
-background:#1c1c1c;
-color:white;
+.notify-glass:hover {
+    background: rgba(255,255,255,0.9);
+    transform: translateX(3px);
 }
 
-.notification-box{
-    position:relative;
-    display:flex;
-    align-items:center;
+/* profile */
+.profile-glass {
+    width: 42px;
+    height: 42px;
 
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #333;
+
+    transition: 0.25s;
+}
+
+.profile-glass:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* DARK MODE support */
+body.dark-mode .topbar-glass {
+    background: rgba(20, 20, 20, 0.55);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark-mode .glass-btn,
+body.dark-mode .profile-glass {
+    background: rgba(40, 40, 40, 0.5);
+    color: white;
+}
+
+body.dark-mode .glass-dropdown {
+    background: rgba(30, 30, 30, 0.6);
+    color: white;
 }

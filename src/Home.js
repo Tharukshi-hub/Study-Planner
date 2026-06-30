@@ -1,6 +1,13 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import CalendarMonthIcon  from "@mui/icons-material/CalendarMonth";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import DescriptionIcon from "@mui/icons-material/Description";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
 
 function Home() {
   return (
@@ -17,7 +24,8 @@ function Home() {
         <div className="hero-left">
 
           <span className="top-badge">
-            ✨ AI Powered Study Planner
+            <AutoAwesomeIcon />
+             AI Powered Study Planner 
           </span>
 
           <h1>
@@ -34,17 +42,13 @@ function Home() {
 
           <div className="feature-list">
 
-            <div>📅 Smart Timetable</div>
+            <div><CalendarMonthIcon />Smart Timetable</div>
 
-            <div>🤖 AI Suggestions</div>
-
-            <div>📈 Progress Tracking</div>
-
-            <div>📄 PDF Notes</div>
-
-            <div>🔔 Notifications</div>
-
-            <div>🌙 Dark Mode</div>
+            <div><LightbulbIcon />AI Suggestions</div>
+            <div><TrendingUpIcon />Progress Tracking</div>
+            <div><DescriptionIcon />PDF Notes</div>
+            <div><NotificationsActiveIcon />Notifications</div>
+            <div><DarkModeIcon />Dark Mode</div>
 
           </div>
 
@@ -71,61 +75,9 @@ function Home() {
         <div className="hero-right">
 
           <div className="dashboard-card">
-
-            <div className="dashboard-header">
-
-              <div className="dot red"></div>
-
-              <div className="dot yellow"></div>
-
-              <div className="dot green"></div>
-
-            </div>
-
-            <h3>Today's Progress</h3>
-
-            <div className="progress-box">
-
-              <div className="progress-circle">
-
-                78%
-
-              </div>
-
-              <div>
-
-                <h4>Study Goal</h4>
-
-                <p>6 / 8 Hours Completed</p>
-
-              </div>
-
-            </div>
-
-            <div className="mini-card blue">
-
-              📚 Java Programming
-
-              <span>8:00 AM</span>
-
-            </div>
-
-            <div className="mini-card green">
-
-              📄 OOP Assignment
-
-              <span>2:00 PM</span>
-
-            </div>
-
-            <div className="mini-card purple">
-
-              🤖 AI Recommendation
-
-              <span>Review DBMS</span>
-
-            </div>
-
+               <img src="./login.jpg"
+                    alt="image">         
+                </img>
           </div>
 
         </div>

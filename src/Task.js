@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Task.css";
 import Sidebar from "./Sidebar";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 function Task() {
 
@@ -231,12 +233,13 @@ const handleDelete = async (id) => {
                                             </td>
                                             <td>
                                                 <button className="edit-btn"
-                                                        onClick={() => handleEdit(task)}> Edit
+                                                        onClick={() => handleEdit(task)}> 
+                                                        <EditIcon />
                                                 </button>
 
                                                 <button className="delete-btn"
                                                         onClick={() => handleDelete(task._id)}>
-                                                    Delete
+                                                    <DeleteIcon />
                                                 </button>
                                             </td>
                                         </tr>

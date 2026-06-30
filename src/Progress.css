@@ -92,22 +92,63 @@
 
 .card{
     background:white;
+    border-radius:20px;
     padding:25px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:
-    0 4px 15px
-    rgba(0,0,0,0.08);
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+    transition:.35s;
+    border-left:6px solid #2563eb;
 }
 
-.card h3{
-    color:#666;
-    margin-bottom:10px;
+.card:hover{
+    transform:translateY(-8px);
 }
 
-.card h2{
-    color:#24124d;
-    font-size:35px;
+.cards-container .card:nth-child(1){
+    border-left-color:#e443c1;
+}
+
+.cards-container .card:nth-child(1) h3{
+    color:#e443c1;
+}
+
+.cards-container .card:nth-child(1) h2{
+    color:#e443c1;
+}
+
+.cards-container .card:nth-child(2){
+    border-left-color:#7c3aed;
+}
+
+.cards-container .card:nth-child(2) h3{
+    color:#7c3aed;
+}
+
+.cards-container .card:nth-child(2) h2{
+    color:#7c3aed;
+}
+
+.cards-container .card:nth-child(3){
+    border-left-color:#22c55e;
+}
+
+.cards-container .card:nth-child(3) h3{
+    color:#22c55e;
+}
+
+.cards-container .card:nth-child(3) h2{
+    color:#22c55e;
+}
+
+.cards-container .card:nth-child(4){
+    border-left-color:#f59e0b;
+}
+
+.cards-container .card:nth-child(4) h3{
+    color:#f59e0b;
+}
+
+.cards-container .card:nth-child(4) h2{
+    color:#f59e0b;
 }
 
 .progress-section{

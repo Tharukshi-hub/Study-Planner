@@ -2,177 +2,93 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Topbar.css";
 
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+
 function Topbar() {
     const [notifications, setNotifications] = useState([]);
     const [showNotifications, setShowNotifications] = useState(false);
-    const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
-    
-
-    useEffect(() => {document.body.classList.toggle("dark-mode", darkMode);
-        localStorage.setItem("darkMode", darkMode);
-    }, 
-    [darkMode]);
+    const [darkMode, setDarkMode] = useState(
+        localStorage.getItem("darkMode") === "true"
+    );
 
     useEffect(() => {
+        document.body.classList.toggle("dark-mode", darkMode);
+        localStorage.setItem("darkMode", darkMode);
+    }, [darkMode]);
 
-    const userId = localStorage.getItem("userId");
+    useEffect(() => {
+        const userId = localStorage.getItem("userId");
+        if (!userId) return;
 
-    if (!userId) return;
+        fetch(`http://localhost:5000/api/notification/generate/${userId}`, {
+            method: "POST",
+        })
+            .then(() => fetch(`http://localhost:5000/api/notification/${userId}`))
+            .then((res) => res.json())
+            .then((data) => setNotifications(data))
+            .catch((err) => console.log(err));
+    }, []);
 
-    // Generate notifications
+    return (
+        <div className="topbar-glass">
+            <div className="topbar-inner">
 
-    fetch(
-
-        `http://localhost:5000/api/notification/generate/${userId}`,
-
-        {
-
-            method:"POST"
-
-        }
-
-    )
-
-    .then(()=>{
-
-        // Get notifications
-
-        return fetch(
-
-            `http://localhost:5000/api/notification/${userId}`
-
-        );
-
-    })
-
-    .then(res=>res.json())
-
-    .then(data=>{
-
-        setNotifications(data);
-
-    })
-
-    .catch(err=>{
-
-        console.log(err);
-
-    });
-
-}, []);
-
-    return(
-
-        <div className="topbar">
-            <div className="topbar-icons">
+                {/* Dark mode */}
                 <button
-                    className="icon-btn"
-                    onClick={()=>
-                       setDarkMode(!darkMode)
-                    }
-
+                    className="glass-btn"
+                    onClick={() => setDarkMode(!darkMode)}
                 >
-
-                    {darkMode ? "☀️" : "🌙"}
-
+                    {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
                 </button>
 
-                <div className="notification-box">
-
+                {/* Notifications */}
+                <div className="notification-wrapper">
                     <button
-
-                        className="icon-btn"
-
-                        onClick={()=>setShowNotifications(
-
-                            !showNotifications
-
-                        )}
-
+                        className="glass-btn"
+                        onClick={() =>
+                            setShowNotifications(!showNotifications)
+                        }
                     >
-
-                        🔔
-
+                        <NotificationsIcon />
                     </button>
 
-                    {
-
-                        notifications.length>0 &&
-
-                        <span className="badge">
-
+                    {notifications.length > 0 && (
+                        <span className="badge-glass">
                             {notifications.length}
-
                         </span>
+                    )}
 
-                    }
+                    {showNotifications && (
+                        <div className="glass-dropdown">
+                            <h4>Notifications</h4>
 
-                    {
-
-                        showNotifications &&
-
-                        <div className="notification-dropdown">
-
-                            <h4>
-
-                                Notifications
-
-                            </h4>
-
-                            {
-
-                                notifications.length===0 ?
-
-                                <p>
-
-                                    No Notifications
-
-                                </p>
-
-                                :
-
-                                notifications.map((item,index)=>(
-
+                            {notifications.length === 0 ? (
+                                <p>No Notifications</p>
+                            ) : (
+                                notifications.map((item, index) => (
                                     <div
-
                                         key={index}
-
-                                        className={`notify ${item.type}`}
-
+                                        className="notify-glass"
                                     >
-
                                         {item.message}
-
                                     </div>
-
                                 ))
-
-                            }
-
+                            )}
                         </div>
-
-                    }
-
+                    )}
                 </div>
 
-                <Link
-
-                    to="/Settings"
-
-                    className="profile-link"
-
-                >
-
-                    👤
-
+                {/* Profile */}
+                <Link to="/Settings" className="profile-glass">
+                    <AccountCircleIcon />
                 </Link>
 
             </div>
-
         </div>
-
     );
-
 }
 
 export default Topbar;

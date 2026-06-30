@@ -32,7 +32,7 @@ app.use("/api/register", RegisterRoutes);
 app.use("/api/subject", SubjectRoutes);
 app.use("/api/task", TaskRoutes);
 app.use("/api/timetable", TimetableRoutes);
-app.use("/uploads", express.static(path.join(__dirname,"uploads")));
+app.use("/uploads", express.static("uploads"));
 app.use("/api/notification", NotificationRoutes);
 
 // Server

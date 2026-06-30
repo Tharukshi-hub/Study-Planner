@@ -71,9 +71,23 @@ function Dashbord() {
 .toISOString()
 .split("T")[0];
 
-const todayTasks = tasks.filter(
-    task => task.deadline === today
-);
+const todayTasks = tasks.filter((task) => {
+
+    if (!task.deadline) return false;
+
+    const taskDate = new Date(task.deadline);
+
+    const today = new Date();
+
+    return (
+
+        taskDate.getDate() === today.getDate() &&
+        taskDate.getMonth() === today.getMonth() &&
+        taskDate.getFullYear() === today.getFullYear()
+
+    );
+
+});
 
         const completedTasks =
         tasks.filter(
@@ -200,20 +214,32 @@ tasks.forEach((task) => {
                                 Today's Targets
                             </h2>
                             {
-                                todayTasks.length > 0 ?
+    todayTasks.length > 0 ? (
 
-                                    todayTasks.map((task) => (
+        <div className="today-target-grid">
 
-                                        <p key={task._id}>
-                                            • {task.taskName}
-                                        </p>
+            {todayTasks.slice(0,3).map((task) => (
 
-                                    ))
+                <div className="mini-task-card" key={task._id}>
 
-                                    :
+                    <div className="task-icon">🎯</div>
 
-                                    <p>No tasks for today</p>
-                                }
+                    <h4>{task.taskName}</h4>
+
+                    <span>{task.status}</span>
+
+                </div>
+
+            ))}
+
+        </div>
+
+    ) : (
+
+        <p>No tasks for today</p>
+
+    )
+}
 
                             {
 
@@ -238,20 +264,33 @@ tasks.forEach((task) => {
                         <h2>
                             Upcoming Tasks
                         </h2>
+                            {
+    pendingTasks.length > 0 ? (
 
-                        {
+        <div className="today-target-grid">
 
-                            pendingTasks.slice(0, 4)
-                                .map((task) => (
+            {pendingTasks.slice(0,3).map((task)=>(
 
-                                    <p key={task._id}>
-                                        • {task.taskName}
-                                    </p>
+                <div className="mini-task-card upcoming" key={task._id}>
 
-                                ))
+                    <div className="task-icon">📄</div>
 
-                        }
+                    <h4>{task.taskName}</h4>
 
+                    <small>{task.deadline}</small>
+
+                </div>
+
+            ))}
+
+        </div>
+
+    ) : (
+
+        <p>No pending tasks</p>
+
+    )
+}
                     </div>
                    </Link> 
 

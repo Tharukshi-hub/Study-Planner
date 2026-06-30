@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Suggestions.css";
-import { Link } from "react-router-dom";
+import Topbar from "./Topbar";
+import Sidebar from "./Sidebar";
 
 function Suggestions() {
 
@@ -207,53 +208,10 @@ useEffect(() => {
 
     return(
         <div className="suggestions-page">
-
-            {/*SIDEBAR*/}
-            <div className="sidebar">
-
-                <h2 className="logo">
-                    Smart Study Planner
-                </h2>
-
-                <ul className="menu">
-
-                    <Link to="/Dashbord">
-                        <li>Dashbord</li>
-                    </Link>
-
-                    <Link to="/Subject">
-                        <li>Subjects</li>
-                    </Link>
-
-                    <Link to="/Task">
-                        <li>Tasks</li>
-                    </Link>
-
-                    <Link to="/Timetable">
-                        <li>Timetable</li>
-                    </Link>
-
-                    <Link to="/Progress">
-                        <li>Progress</li>
-                    </Link>
-
-                    <li className="active">
-                        AI Suggestions
-                    </li>
-
-                    <Link to="/Calender">
-                        <li>Calender</li>
-                    </Link>
-
-                    <Link to="/Settings">
-                        <li>Settings</li>
-                    </Link>
-                </ul>
-            </div>
-
+                <Sidebar />
             { /*MAINCONTENT*/ }
             <div className="main-content">
-
+                <Topbar />
                 { /*TOP SECTION*/ }
 
                 <div className="top-section">

@@ -1,62 +1,43 @@
-import { Link } from "react-router-dom";
-import DashbordIcon from "@mui/icons-material/Dashboard";
-import SubjectsIcon from "@mui/icons-material/School";
-
-
+import { Link, useLocation } from "react-router-dom";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import SubjectIcon from "@mui/icons-material/Subject";
+import TaskIcon from "@mui/icons-material/Task";
+import CalendarMonthIcon  from "@mui/icons-material/CalendarMonth";
+import EventIcon from "@mui/icons-material/Event";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 function Sidebar() {
-    return(
-<div className="dashboard-container">
+    const location = useLocation();
 
-            {/* SIDEBAR */}
+    const menuItems = [
+        { name: "Dashboard", path: "/Dashbord", icon: <DashboardIcon /> },
+        { name: "Subjects", path: "/subject", icon: <SubjectIcon /> },
+        { name: "Task", path: "/Task", icon: <TaskIcon /> },
+        { name: "Timetable", path: "/timetable", icon: <CalendarMonthIcon/> },
+        { name: "Progress", path: "/progress", icon: <TrendingUpIcon />},
+        { name: "AI Suggestions", path: "/suggestions", icon: <LightbulbIcon /> },
+        { name: "Calender", path: "/calender", icon: <EventIcon /> },
+        { name: "Settings", path: "/settings", icon: <SettingsIcon /> }
+    ];
 
-            <div className="sidebar">
+    return (
+        <div className="sidebar">
+            <h2 className="logo">Smart Study Planner</h2>
 
-                <h2 className="logo">
-                    Smart Study Planner
-                </h2>
-
-                <ul className="menu">
-
-                    <li className="active">
-                        <DashbordIcon />
-                        Dashboard
-                    </li>
-
-                    <Link to="/Subject">
-                        <li>
-                            <SubjectsIcon />
-                            Subjects
+            <ul className="menu">
+                {menuItems.map((item, index) => (
+                    <Link to={item.path} key={index} className="link">
+                        <li className={location.pathname === item.path ? "active" : ""}>
+                            {item.icon}
+                            <span>{item.name}</span>
                         </li>
                     </Link>
-
-                    <Link to="/Task">
-                        <li>Tasks</li>
-                    </Link>
-
-                    <Link to="/Timetable">
-                        <li>Timetable</li>
-                    </Link>
-
-                    <Link to="/Progress">
-                        <li>Progress</li>
-                    </Link>
-
-                    <Link to="/Suggestions">
-                        <li>AI Suggestions</li>
-                    </Link>
-
-                    <Link to="/Calender">
-                        <li>Calender</li>
-                    </Link>
-
-                    <Link to="/Settings">
-                        <li>Settings</li>
-                    </Link>
-
-                </ul>
-
-            </div>
+                ))}
+            </ul>
         </div>
     );
 }
+
+export default Sidebar;

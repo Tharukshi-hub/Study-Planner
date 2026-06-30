@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Subject.css";
-import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 function Subject() {
     const [subjects, setSubjects] = useState([]);
@@ -92,38 +92,7 @@ const handleEdit = (subject) => {
 
     return (
         <div className="subjects-page">
-            {/* SIDEBAR */}
-            <div className="sidebar">
-                <h2 className="logo">
-                    Smart Study Planner
-                </h2>
-                <ul className="menu">
-                  <Link to="/Dashbord">
-                    <li>Dashbord</li>
-                  </Link>
-                    <li className="active">
-                        Subjects
-                    </li>
-                  <Link to="/Task">
-                    <li>Tasks</li>
-                  </Link>
-                  <Link to="/Timetable">
-                    <li>Timetable</li>
-                  </Link>
-                  <Link to="/Progress">
-                    <li>Progress</li>
-                  </Link>
-                  <Link to="/Suggestions">
-                    <li>AI Suggestions</li>
-                  </Link>
-                  <Link to="/Calender">
-                    <li>Calender</li>
-                  </Link>
-                  <Link to="/Settings">
-                    <li>Settings</li>
-                  </Link>
-                </ul>
-           </div>
+            <Sidebar />
             {/* MAIN CONTENT */}
             <div className="main-content">
                 {/* TOP */}

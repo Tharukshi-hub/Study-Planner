@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Task.css";
-import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 function Task() {
 
@@ -150,49 +150,7 @@ const handleDelete = async (id) => {
     return (
 
         <div className="task-page">
-            {/* SIDEBAR */}
-            <div className="sidebar">
-                <h2 className="logo">
-                    Smart Study Planner
-                </h2>
-                <ul className="menu">
-
-                 <Link to="/Dashbord">   
-                    <li>Dashbord</li>
-                 </Link>
-
-                 <Link to="/Subject">   
-                    <li>Subjects</li>
-                 </Link>
-
-                    <li className="active">
-                        Tasks
-                    </li>
-
-                <Link to="/Timetable">
-                    <li>Timetable</li>
-                </Link>    
-
-                  <Link to="/Progress">
-                    <li>Progress</li>
-                  </Link>
-
-                  <Link to="/Suggestions">
-                    <li>AI Suggestions</li>
-                  </Link>
-
-                  <Link to="/Calender">
-                    <li>Calender</li>
-                  </Link>
-
-                  <Link to="/Settings">
-                    <li>Settings</li>
-                  </Link>
-                  
-                </ul>
-
-            </div>
-
+             <Sidebar />
             {/* MAIN CONTENT */}
 
             <div className="main-content">

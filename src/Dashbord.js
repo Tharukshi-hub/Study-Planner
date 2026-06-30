@@ -2,46 +2,37 @@ import React, { useState, useEffect } from "react";
 import "./Dashbord.css";
 import { Link } from "react-router-dom";
 import Topbar from "./Topbar";
-import DashbordIcon from "@mui/icons-material/Dashboard";
-import SubjectsIcon from "@mui/icons-material/School";
+import Sidebar from "./Sidebar";
 
 function Dashbord() {
-
     const [tasks, setTasks] = useState([]);
     const [timetable, setTimetable] = useState([]);
     const [subjects, setSubjects] = useState([]);
     const [userName, setUserName] = useState([]);
 
     useEffect(() => {
-
         getTasks();
         getTimetable();
         getSubjects();
         
-        const name = localStorage.getItem("userName");
+    const name = localStorage.getItem("userName");
          setUserName(name || "Student");
     }, []);
 
     const getTasks = async () => {
 
         try {
-            const userId = localStorage.getItem("userId");
-            const response = await fetch(
-                `http://localhost:5000/api/task/${userId}`
-            );
+    const userId = localStorage.getItem("userId");
+    const response = await fetch(
+        `http://localhost:5000/api/task/${userId}`
+    );
 
-            const data = await response.json();
+    const data = await response.json();
 
             setTasks(data);
 
         }
-
-        catch (error) {
-
-            console.log(error);
-
-        }
-
+        catch (error) {console.log(error);}
     };
 
     const getTimetable = async () => {
@@ -49,8 +40,7 @@ function Dashbord() {
         try {
             const userId = localStorage.getItem("userId");
             const response = await fetch(
-                `http://localhost:5000/api/timetable/${userId}`
-            );
+                `http://localhost:5000/api/timetable/${userId}`);
 
             const data = await response.json();
 
@@ -70,23 +60,12 @@ function Dashbord() {
     try {
 
         const userId = localStorage.getItem("userId");
-
         const response = await fetch(
-            `http://localhost:5000/api/subject/${userId}`
-        );
-
+            `http://localhost:5000/api/subject/${userId}`);
         const data = await response.json();
-
         setSubjects(data);
-
     }
-
-    catch(error) {
-
-        console.log(error);
-
-    }
-
+    catch(error) {console.log(error);}
 };
     const today = new Date()
 .toISOString()
@@ -200,57 +179,8 @@ tasks.forEach((task) => {
     return (
 
         <div className="dashboard-container">
-
-            {/* SIDEBAR */}
-
-            <div className="sidebar">
-
-                <h2 className="logo">
-                    Smart Study Planner
-                </h2>
-
-                <ul className="menu">
-
-                    <li className="active">
-                        <DashbordIcon />
-                        Dashboard
-                    </li>
-
-                    <Link to="/Subject">
-                        <li>
-                            <SubjectsIcon />
-                            Subjects
-                        </li>
-                    </Link>
-
-                    <Link to="/Task">
-                        <li>Tasks</li>
-                    </Link>
-
-                    <Link to="/Timetable">
-                        <li>Timetable</li>
-                    </Link>
-
-                    <Link to="/Progress">
-                        <li>Progress</li>
-                    </Link>
-
-                    <Link to="/Suggestions">
-                        <li>AI Suggestions</li>
-                    </Link>
-
-                    <Link to="/Calender">
-                        <li>Calender</li>
-                    </Link>
-
-                    <Link to="/Settings">
-                        <li>Settings</li>
-                    </Link>
-
-                </ul>
-
-            </div>
-
+                <Sidebar />
+           
             {/* MAIN CONTENT */}
 
             <div className="main-content">
@@ -264,73 +194,67 @@ tasks.forEach((task) => {
 
                     {/* TODAY TARGETS */}
                     <Link to="/Task" className="card-link">
+                        <div className="dashboard-card">
 
-<div className="dashboard-card">
+                            <h2>
+                                Today's Targets
+                            </h2>
+                            {
+                                todayTasks.length > 0 ?
 
-<div className="card-icon">🎯</div>
+                                    todayTasks.map((task) => (
 
-<h2>Today's Targets</h2>
+                                        <p key={task._id}>
+                                            • {task.taskName}
+                                        </p>
 
-<p className="card-subtitle">
-Stay focused on today's priorities.
-</p>
+                                    ))
 
-{
+                                    :
 
-todayTasks.length>0 ?
+                                    <p>No tasks for today</p>
+                                }
 
-todayTasks.map(task=>(
+                            {
 
-<p key={task._id}>
+                                timetable.slice(0, 3)
+                                    .map((item, index) => (
 
-✅ {task.taskName}
+                                        <p key={index}>
+                                            {item.task}
+                                        </p>
 
-</p>
+                                    ))
 
-))
+                            }
 
-:
+                        </div>
+                    </Link>
 
-<p>
+                    {/* UPCOMING TASKS */}
+                  <Link to="/Task" className="card-link">
+                    <div className="dashboard-card">
 
-No tasks for today
+                        <h2>
+                            Upcoming Tasks
+                        </h2>
 
-</p>
+                        {
 
-}
+                            pendingTasks.slice(0, 4)
+                                .map((task) => (
 
-</div>
+                                    <p key={task._id}>
+                                        • {task.taskName}
+                                    </p>
 
-</Link>
-                    <Link to="/Task" className="card-link">
+                                ))
 
-<div className="dashboard-card">
+                        }
 
-<div className="card-icon">📅</div>
+                    </div>
+                   </Link> 
 
-<h2>Upcoming Tasks</h2>
-
-<p className="card-subtitle">
-Deadlines approaching.
-</p>
-
-{
-
-pendingTasks.slice(0,4).map(task=>(
-
-<p key={task._id}>
-
-⏰ {task.taskName}
-
-</p>
-
-))
-
-}
-
-</div>
-
-</Link>
                     {/* AI SUGGESTIONS */}
                     <Link to = "/Suggestions" className="card-link">
                         <div className="dashboard-card">

@@ -79,19 +79,8 @@ body.dark-mode{
 
 .top-section p{
     color:#666;
-    margin-top:10px;
-}
-
-/* DARK MODE TEXT */
-body.dark-mode .top-section h1,
-body.dark-mode .settings-card h2,
-body.dark-mode .toggle-row span,
-body.dark-mode .small-text{
-    color:#f3f4f6;
-}
-
-body.dark-mode .top-section p{
-    color:#cbd5e1;
+    margin-top:8px;
+    font-size: 16px;
 }
 
 /* SETTINGS CONTAINER */
@@ -139,7 +128,7 @@ body.dark-mode .settings-card select{
 }
 
 .settings-card button{
-    background:#2563eb;
+    background:#1e4fd1;
     color:white;
     border:none;
     padding:14px;
@@ -150,7 +139,7 @@ body.dark-mode .settings-card select{
 }
 
 .settings-card button:hover{
-    background:#1e4fd1;
+    background:#ec3563;
 }
 
 /* TOGGLE */

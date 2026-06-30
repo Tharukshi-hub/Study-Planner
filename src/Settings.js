@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Settings.css";
-import { Link } from "react-router-dom";
-
+import Sidebar from "./Sidebar";
 
 function Settings() {
     const [name, setName] = useState("");
@@ -157,68 +156,10 @@ const updatePassword = async () => {
 
 };
 
-    const [darkMode, setDarkMode] = useState(() => {
-        return localStorage.getItem("theme") === "dark";
-        });
-
-     useEffect(() => {
-        if (darkMode) {
-            document.body.classList.add("dark-mode");
-            localStorage.setItem("theme", "dark");
-        } else {
-            document.body.classList.remove("dark-mode");
-            localStorage.setItem("theme", "light");
-        }
-        }, [darkMode]);
-
+    
      return (
         <div className="settings-page">
-
-            {/* SIDEBAR */}
-
-            <div className="sidebar">
-
-                <h2 className="logo">
-                    Smart Study Planner
-                </h2>
-
-                <ul className="menu">
-
-                    <Link to="/Dashbord">
-                        <li>Dashbord</li>
-                    </Link>
-
-                    <Link to="/Subject">
-                        <li>Subjects</li>
-                    </Link>
-
-                    <Link to="/Task">
-                        <li>Tasks</li>
-                    </Link>
-
-                    <Link to="/Timetable">
-                        <li>Timetable</li>
-                    </Link>
-
-                    <Link to="/Progress">
-                        <li>Progress</li>
-                    </Link>
-
-                    <Link to="/Suggestions">
-                        <li>AI Suggestions</li>
-                    </Link>
-
-                    <Link to="/Calender">
-                        <li>Calender</li>
-                    </Link>
-
-                    <li className="active">
-                        Settings
-                    </li>
-
-                </ul>
-            </div>
-
+                <Sidebar />
             {/* MAIN CONTENT */}
             <div className="main-content">
                 <div className="top-section">
@@ -285,27 +226,6 @@ const updatePassword = async () => {
                             Update Password
                         </button>
                     </div>
-                    {/* APPEARANCE */}
-                    <div className="settings-card">
-                        <h2>Appearance</h2>
-
-                        <div className="toggle-row">
-                            <span>Dark Mode</span>
-
-                            <label className="switch">
-                                <input
-                                    type="checkbox"
-                                    checked={darkMode}
-                                    onChange={() => setDarkMode(!darkMode)}
-                                />
-                                <span className="slider"></span>
-                            </label>
-                        </div>
-
-                        <p className="small-text">
-                            Turn dark mode on or off for better viewing comfort.
-                        </p>
-                    </div>
                     {/* ACCOUNT */}
         <div className="settings-card">
      <h2>Account</h2>
@@ -316,14 +236,9 @@ const updatePassword = async () => {
 
         <button
         onClick={() => {
-
             localStorage.clear();
-
             window.location.href = "/";
-
-        }}
-     >
-        Logout
+        }}> Logout
         </button>
 
         </div>

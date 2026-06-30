@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Calender.css";
-import { Link } from "react-router-dom";
+import Topbar from "./Topbar";
+import Sidebar from "./Sidebar";
 
 function Calender() {
 
@@ -116,57 +117,11 @@ for (
 return (
 
     <div className="calender-page">
-
-        {/* SIDEBAR */}
-
-        <div className="sidebar">
-
-            <h2 className="logo">
-                Smart Study Planner
-            </h2>
-
-            <ul className="menu">
-
-                <Link to="/Dashbord">
-                    <li>Dashbord</li>
-                </Link>
-
-                <Link to="/Subject">
-                    <li>Subjects</li>
-                </Link>
-
-                <Link to="/Task">
-                    <li>Tasks</li>
-                </Link>
-
-                <Link to="/Timetable">
-                    <li>Timetable</li>
-                </Link>
-
-                <Link to="/Progress">
-                    <li>Progress</li>
-                </Link>
-
-                <Link to="/Suggestions">
-                    <li>AI Suggestions</li>
-                </Link>
-
-                <li className="active">
-                    Calender
-                </li>
-
-                <Link to="/Settings">
-                    <li>Settings</li>
-                </Link>
-
-            </ul>
-
-        </div>
-
+            <Sidebar />
         {/* MAIN CONTENT */}
 
         <div className="main-content">
-
+                <Topbar />
             <div className="top-section">
 
                 <div>

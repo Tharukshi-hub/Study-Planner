@@ -11,85 +11,6 @@ body{
     background:linear-gradient(135deg,#f8fbff,#eef4ff,#f6f8ff);
 }
 
-/* ================= SIDEBAR ================= */
-
-.sidebar{
-
-    width:260px;
-
-    background:linear-gradient(180deg,#15153a,#312e81,#4338ca);
-
-    color:white;
-
-    padding:30px 22px;
-
-    box-shadow:8px 0 30px rgba(0,0,0,.08);
-
-}
-
-.logo{
-
-    font-size:30px;
-
-    font-weight:700;
-
-    margin-bottom:45px;
-
-    line-height:1.4;
-
-}
-
-.menu{
-
-    list-style:none;
-
-    padding:0;
-
-}
-
-.menu a{
-
-    color:white;
-
-    text-decoration:none;
-
-}
-
-.menu li{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:15px 18px;
-
-    margin-bottom:14px;
-
-    border-radius:15px;
-
-    transition:.35s;
-
-    font-weight:500;
-
-}
-
-.menu li:hover{
-
-    background:rgba(255,255,255,.14);
-
-    transform:translateX(6px);
-
-}
-
-.active{
-
-    background:linear-gradient(90deg,#2563eb,#3b82f6);
-
-    box-shadow:0 10px 25px rgba(37,99,235,.35);
-
-}
 
 /* ================= MAIN ================= */
 
@@ -421,15 +342,9 @@ color:white;
 }
 
 .progress-message{
-
 margin-top:20px;
-
 font-weight:600;
-
 font-size:17px;
-
 color:#2563eb;
-
 background:none !important;
-
 }

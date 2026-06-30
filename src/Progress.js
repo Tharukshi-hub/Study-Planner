@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Progress.css";
-import { Link } from "react-router-dom";
+import Topbar from "./Topbar";
+import Sidebar from "./Sidebar";
 
 function Progress() {
 
@@ -115,53 +116,11 @@ const progressPercentage = totalTasks > 0?
 
     return(
         <div className="progress-page">
-
-            {/*SIDEBAR*/}
-
-            <div className="sidebar">
-                <h2 className="logo">
-                    Smart Study Planner
-                </h2>
-
-                <ul className="menu">
-
-                    <Link to="/Dashbord">
-                        <li>Dashbord</li>
-                    </Link>
-
-                    <Link to="/Subject">
-                        <li>Subjects</li>
-                    </Link>
-
-                    <Link to="/Task">
-                        <li>Tasks</li>
-                    </Link>
-
-                    <Link to="/Timetable">
-                        <li>Timetable</li>
-                    </Link>
-                    
-                    <li className="active">
-                        Progress
-                    </li>
-
-                    <Link to="/Suggestions">
-                        <li>AI Suggestions</li>
-                    </Link>
-
-                    <Link to="/Calender">
-                        <li>Calender</li>
-                    </Link>
-
-                    <Link to="/Settings">
-                        <li>Settings</li>
-                    </Link>
-                </ul>
-            </div>
-
+                <Sidebar />
             { /*MAIN CONTENT*/ }
 
                  <div className="main-content">
+                    <Topbar />
             { /*TOP SECTION*/ }
 
                 <div className="top-section">

@@ -1,177 +1,153 @@
-body{
-    margin:0;
-    padding:0;
-    font-family:'Poppins',sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
 }
 
-.register-container{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(
-        135deg,
-        #4f46e5,
-        #2563eb,
-        #06b6d4
-    );
-    position:relative;
+.register-page {
+  height: 100vh;
+  display: flex;
+  background: radial-gradient(circle at top, #0b1220, #050816);
+  overflow: hidden;
 }
 
-/* Floating Background */
-
-.register-container::before{
-    content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.15);
-    top:-120px;
-    left:-120px;
+/* LEFT HERO */
+.register-left {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.register-container::after{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.12);
-    bottom:-100px;
-    right:-100px;
+.register-left::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #4f46e5, transparent);
+  filter: blur(80px);
+  top: 20%;
+  left: 20%;
 }
 
-/* Glass Card */
-
-.register-card{
-    width:430px;
-    padding:40px;
-    border-radius:25px;
-
-    background:rgba(255,255,255,0.18);
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,0.25);
-
-    box-shadow:
-    0 8px 32px rgba(0,0,0,0.2);
-
-    color:white;
-
-    position:relative;
-    z-index:2;
+.glass-text {
+  z-index: 2;
+  color: white;
 }
 
-.register-card h1{
-    text-align:center;
-    font-size:34px;
-    margin-bottom:10px;
+.glass-text h1 {
+  font-size: 52px;
+  font-weight: 800;
 }
 
-.subtitle{
-    text-align:center;
-    margin-bottom:30px;
-    color:#e0e7ff;
-    font-size:15px;
+.glass-text h2 {
+  font-size: 40px;
+  background: linear-gradient(90deg, #6366f1, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.register-form{
-    display:flex;
-    flex-direction:column;
+.glass-text p {
+  margin-top: 10px;
+  opacity: 0.7;
 }
 
-.input-group{
-    margin-bottom:18px;
+/* RIGHT SIDE */
+.register-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.register-form input{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-
-    background:rgba(255,255,255,0.15);
-
-    color:white;
-    font-size:15px;
-
-    outline:none;
-
-    box-sizing:border-box;
-
-    transition:0.3s;
+/* GLASS CARD */
+.glass-card {
+  width: 380px;
+  padding: 35px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  color: white;
+  animation: fade 0.5s ease;
 }
 
-.register-form input::placeholder{
-    color:#dbeafe;
+.glass-card h2 {
+  font-size: 24px;
 }
 
-.register-form input:focus{
-    background:rgba(255,255,255,0.22);
-
-    transform:scale(1.02);
-
-    box-shadow:
-    0 0 15px rgba(255,255,255,0.3);
+.glass-card p {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 20px;
 }
 
-.error-text{
-    color:#ffd5d5;
-    font-size:13px;
-    margin-top:6px;
-    margin-left:4px;
+/* INPUTS */
+.glass-card input {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
 }
 
-/* Button */
-
-.register-form button{
-    margin-top:15px;
-    padding:15px;
-
-    border:none;
-    border-radius:12px;
-
-    background:white;
-    color:#2563eb;
-
-    font-size:16px;
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:0.3s;
+.glass-card input::placeholder {
+  color: rgba(255,255,255,0.5);
 }
 
-.register-form button:hover{
-
-    transform:translateY(-3px);
-
-    background:#f8fafc;
-
-    box-shadow:
-    0 10px 20px rgba(0,0,0,0.2);
-
+/* ERROR */
+.glass-card span {
+  font-size: 11px;
+  color: #f87171;
 }
 
-/* Small animation */
-
-.register-card{
-    animation:fadeIn 0.8s ease;
+/* BUTTON */
+.glass-card button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #6366f1, #22d3ee);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-@keyframes fadeIn{
+.glass-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+}
 
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .register-page {
+    flex-direction: column;
+  }
 
+  .glass-text h1 {
+    font-size: 36px;
+  }
+
+  .glass-text h2 {
+    font-size: 28px;
+  }
 }

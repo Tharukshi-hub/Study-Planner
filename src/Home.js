@@ -1,75 +1,139 @@
 import React from "react";
 import "./Home.css";
-
 import { Link } from "react-router-dom";
 
-function Home(){
+function Home() {
+  return (
+    <div className="home-container">
 
-    return(
+      <div className="bg-circle circle1"></div>
+      <div className="bg-circle circle2"></div>
+      <div className="bg-circle circle3"></div>
 
-        <div className="home-container">
-            <div className="floating circle1"></div>
-            <div className="floating circle2"></div>
-            <div className="floating circle3"></div>
+      <div className="hero">
 
-            <div className="overlay"></div>
+        {/* LEFT SIDE */}
 
-            <div className="home-card">
+        <div className="hero-left">
 
-                <h1 className="title">
-                    📚 Smart Study Planner
-                </h1>
+          <span className="top-badge">
+            ✨ AI Powered Study Planner
+          </span>
 
-                <p className="description">
-                    Organize your studies efficiently with smart AI-powered planning
-                </p>
+          <h1>
+            Study <span>Smarter</span>,
+            <br />
+            Not Harder.
+          </h1>
 
-                <div className="features">
-                    <span className="badge">🗓️ Smart Timetable</span>
-                    <span className="badge">🤖 AI Recommendations</span>
-                    <span className="badge">🚀 Progress Tracking</span>
-                </div>
+          <p>
+            Organize your subjects, upload notes, manage tasks,
+            generate smart timetables and track your progress
+            in one beautiful platform.
+          </p>
 
-                <div className="buttons">
+          <div className="feature-list">
 
-                    <Link to="/register">
+            <div>📅 Smart Timetable</div>
 
-                        <button className="btn-register">
+            <div>🤖 AI Suggestions</div>
 
-                            <span className="button-title">
-                                New User?
-                            </span>
+            <div>📈 Progress Tracking</div>
 
-                            <span className="button-subtitle">
-                                Register Here
-                            </span>
+            <div>📄 PDF Notes</div>
 
-                        </button>
+            <div>🔔 Notifications</div>
 
-                    </Link>
+            <div>🌙 Dark Mode</div>
 
-                    <Link to="/login">
+          </div>
 
-                        <button className="btn-login">
+          <div className="buttons">
 
-                            <span className="button-title">
-                                Already Registered?
-                            </span>
+            <Link to="/register">
+              <button className="btn-register">
+                Get Started →
+              </button>
+            </Link>
 
-                            <span className="button-subtitle">
-                                Login Here
-                            </span>
+            <Link to="/login">
+              <button className="btn-login">
+                Sign In
+              </button>
+            </Link>
 
-                        </button>
+          </div>
 
-                    </Link>
+        </div>
 
-                </div>
+        {/* RIGHT SIDE */}
+
+        <div className="hero-right">
+
+          <div className="dashboard-card">
+
+            <div className="dashboard-header">
+
+              <div className="dot red"></div>
+
+              <div className="dot yellow"></div>
+
+              <div className="dot green"></div>
 
             </div>
 
+            <h3>Today's Progress</h3>
+
+            <div className="progress-box">
+
+              <div className="progress-circle">
+
+                78%
+
+              </div>
+
+              <div>
+
+                <h4>Study Goal</h4>
+
+                <p>6 / 8 Hours Completed</p>
+
+              </div>
+
+            </div>
+
+            <div className="mini-card blue">
+
+              📚 Java Programming
+
+              <span>8:00 AM</span>
+
+            </div>
+
+            <div className="mini-card green">
+
+              📄 OOP Assignment
+
+              <span>2:00 PM</span>
+
+            </div>
+
+            <div className="mini-card purple">
+
+              🤖 AI Recommendation
+
+              <span>Review DBMS</span>
+
+            </div>
+
+          </div>
+
         </div>
-    );
+
+      </div>
+
+    </div>
+  );
 }
 
 export default Home;

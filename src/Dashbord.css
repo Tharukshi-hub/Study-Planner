@@ -1,145 +1,435 @@
 body{
     margin:0;
     padding:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#eef4ff;
+    font-family:'Poppins',sans-serif;
+    background:#f5f7ff;
 }
 
 .dashboard-container{
     display:flex;
     min-height:100vh;
+    background:linear-gradient(135deg,#f8fbff,#eef4ff,#f6f8ff);
 }
 
-.dashboard-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
-}
-
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 
 .sidebar{
-    width:250px;
-    background:linear-gradient(
-        180deg,
-        #24124d,
-        #4f2ab5
-    );
+
+    width:260px;
+
+    background:linear-gradient(180deg,#15153a,#312e81,#4338ca);
+
     color:white;
-    padding:30px 20px;
+
+    padding:30px 22px;
+
+    box-shadow:8px 0 30px rgba(0,0,0,.08);
+
 }
 
 .logo{
-    margin-bottom:50px;
-    font-size:28px;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:45px;
+
+    line-height:1.4;
+
 }
 
 .menu{
+
     list-style:none;
+
     padding:0;
+
 }
 
 .menu a{
-    text-decoration:none;
+
     color:white;
+
+    text-decoration:none;
+
 }
 
 .menu li{
-    padding:16px;
-    margin-bottom:15px;
-    border-radius:12px;
-    cursor:pointer;
-    transition:0.3s;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px 18px;
+
+    margin-bottom:14px;
+
+    border-radius:15px;
+
+    transition:.35s;
+
+    font-weight:500;
+
 }
 
 .menu li:hover{
-    background:rgba(255,255,255,0.15);
+
+    background:rgba(255,255,255,.14);
+
+    transform:translateX(6px);
+
 }
 
 .active{
-    background:#2563eb;
+
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
+
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
 
 .main-content{
+
     flex:1;
-    padding:40px;
+
+    padding:35px;
+
+}
+
+/* ================= HERO ================= */
+
+.dashboard-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
 }
 
 .welcome-text{
-    color:#24124d;
-    font-size:42px;
+
+    font-size:40px;
+
+    color:#1e293b;
+
+    font-weight:700;
+
     margin:0;
+
 }
 
 .dashboard-grid{
+
     display:grid;
-    grid-template-columns:
-        repeat(2, 1fr);
-    gap:25px;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:28px;
+
 }
 
+/* ================= CARDS ================= */
+
 .dashboard-card{
-    background:white;
-    border-radius:20px;
-    padding:25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    border:1px solid rgba(255,255,255,.8);
+
     box-shadow:
-        0 5px 15px
-        rgba(0,0,0,0.05);
-    transition:0.3s ease;
-    cursor:pointer;
+
+    0 15px 35px rgba(15,23,42,.08);
+
+    transition:.4s;
+
+}
+
+.dashboard-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:5px;
+
+background:linear-gradient(90deg,#2563eb,#7c3aed,#06b6d4);
+
 }
 
 .dashboard-card:hover{
-    transform:translateY(-6px);
-     box-shadow: 0 15px 35px rgba(37,99,235,0.25);
-}
 
-.dashboard-card:hover h2{
-    color:#2563eb;
+transform:translateY(-10px);
+
+box-shadow:
+
+0 25px 45px rgba(37,99,235,.18);
+
 }
 
 .dashboard-card h2{
-    color:#24124d;
-    margin-bottom:15px;
+
+margin-bottom:18px;
+
+font-size:22px;
+
+color:#1e293b;
+
+font-weight:700;
+
 }
 
 .dashboard-card p{
-    color:#555;
-    margin-bottom:10px;
+
+padding:10px 15px;
+
+margin:10px 0;
+
+border-radius:12px;
+
+background:#f8faff;
+
+color:#475569;
+
+font-size:15px;
+
+transition:.3s;
+
 }
 
-.card-link{
-    text-decoration: none;
-    color: inherit;
+.dashboard-card p:hover{
+
+background:#eef4ff;
+
+transform:translateX(4px);
+
 }
 
-/* PROGRESS */
+/* ================= PROGRESS ================= */
 
 .progress-card{
-    text-align:center;
+
+text-align:center;
+
 }
 
 .progress-circle{
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin:auto;
+
+width:170px;
+
+height:170px;
+
+margin:auto;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+box-shadow:
+
+0 20px 40px rgba(37,99,235,.15);
+
 }
 
 .progress-inner{
-    width:110px;
-    height:110px;
-    background:white;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-    font-weight:bold;
+
+width:130px;
+
+height:130px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:white;
+
+font-size:30px;
+
+font-weight:700;
+
+color:#2563eb;
+
+box-shadow:inset 0 0 20px rgba(0,0,0,.05);
+
+}
+
+/* ================= LINKS ================= */
+
+.card-link{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+.dashboard-container{
+
+flex-direction:column;
+
+}
+
+.sidebar{
+
+width:100%;
+
+}
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.main-content{
+
+padding:20px;
+
+}
+
+.welcome-text{
+
+font-size:30px;
+
+}
+
+.dashboard-card{
+
+padding:22px;
+
+}
+
+.progress-circle{
+
+width:150px;
+
+height:150px;
+
+}
+
+.progress-inner{
+
+width:115px;
+
+height:115px;
+
+font-size:26px;
+
+}
+
+}
+
+.card-icon{
+
+width:60px;
+height:60px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:28px;
+
+border-radius:18px;
+
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+color:white;
+
+margin-bottom:18px;
+
+box-shadow:0 10px 25px rgba(37,99,235,.25);
+
+}
+
+.card-subtitle{
+
+background:none !important;
+
+padding:0 !important;
+
+margin-top:-8px !important;
+
+margin-bottom:18px !important;
+
+color:#64748b !important;
+
+font-size:14px;
+
+}
+
+.ai-card{
+
+background:linear-gradient(135deg,#6d28d9,#4f46e5);
+
+color:white;
+
+}
+
+.ai-card h2{
+
+color:white;
+
+}
+
+.ai-card p{
+
+background:rgba(255,255,255,.12);
+
+color:white;
+
+}
+
+.progress-message{
+
+margin-top:20px;
+
+font-weight:600;
+
+font-size:17px;
+
+color:#2563eb;
+
+background:none !important;
+
 }

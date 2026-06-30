@@ -2,28 +2,26 @@ import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 
+import {
+    FaEnvelope,
+    FaLock,
+    FaUserGraduate
+} from "react-icons/fa";
+
 function Login(){
 
     const navigate = useNavigate();
 
-    // INPUT STATES
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [emailError,setEmailError] = useState("");
+    const [passwordError,setPasswordError] = useState("");
+    const [serverError,setServerError] = useState("");
 
-    // ERROR STATES
-
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-    const [serverError, setServerError] = useState("");
-
-    // LOGIN FUNCTION
-
-    const handleLogin = async (e) => {
+    const handleLogin = async(e)=>{
 
         e.preventDefault();
-
-        // CLEAR OLD ERRORS
 
         setEmailError("");
         setPasswordError("");
@@ -31,32 +29,26 @@ function Login(){
 
         let valid = true;
 
-        // EMAIL VALIDATION
-
-        if(email === ""){
+        if(email===""){
 
             setEmailError("Please enter your email.");
-            valid = false;
+            valid=false;
 
         }
 
         else if(!email.includes("@")){
 
             setEmailError("Email must contain @ symbol.");
-            valid = false;
+            valid=false;
 
         }
 
-        // PASSWORD VALIDATION
-
-        if(password === ""){
+        if(password===""){
 
             setPasswordError("Please enter your password.");
-            valid = false;
+            valid=false;
 
         }
-
-        // SEND DATA TO BACKEND
 
         if(valid){
 
@@ -71,13 +63,15 @@ function Login(){
                         method:"POST",
 
                         headers:{
+
                             "Content-Type":"application/json"
+
                         },
 
                         body:JSON.stringify({
 
-                            email: email,
-                            password: password
+                            email,
+                            password
 
                         })
 
@@ -87,17 +81,15 @@ function Login(){
 
                 const data = await response.json();
 
-                // SUCCESS
-
                 if(response.ok){
 
+                    localStorage.setItem("userId",data.user._id);
+
+                    localStorage.setItem("userName",data.user.name);
+
                     navigate("/Dashbord");
-                     localStorage.setItem("userId", data.user._id );
-                     localStorage.setItem("userName", data.user.name);
 
                 }
-
-                // BACKEND ERRORS
 
                 else{
 
@@ -121,88 +113,182 @@ function Login(){
 
     return(
 
-        <div className="login-container">
+<div className="login-container">
 
-            <div className="login-card">
+<div className="login-wrapper">
 
-                <h1 className="login-title">
-                    Welcome Back
-                </h1>
+<div className="login-left">
 
-                <p className="login-description">
-                    Login to continue your smart study journey
-                </p>
+<div className="login-left-content">
 
-                <form
-                    className="login-form"
-                    onSubmit={handleLogin}
-                >
+<FaUserGraduate className="study-icon"/>
 
-                    {/* EMAIL */}
+<h1>
 
-                    <div className="input-group">
+Welcome Back
 
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) =>
-                                setEmail(e.target.value)
-                            }
-                        />
+</h1>
 
-                        {
-                            emailError &&
-                            <p className="error-text">
-                                {emailError}
-                            </p>
-                        }
+<p>
 
-                    </div>
+Continue your smart learning journey and stay ahead with organised study planning.
 
-                    {/* PASSWORD */}
+</p>
 
-                    <div className="input-group">
+<img
 
-                        <input
-                            type="password"
-                            placeholder="Enter your password"
-                            value={password}
-                            onChange={(e) =>
-                                setPassword(e.target.value)
-                            }
-                        />
+src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
 
-                        {
-                            passwordError &&
-                            <p className="error-text">
-                                {passwordError}
-                            </p>
-                        }
+alt="student"
 
-                    </div>
+className="login-image"
 
-                    {/* SERVER ERROR */}
+/>
 
-                    {
-                        serverError &&
-                        <p className="error-text">
-                            {serverError}
-                        </p>
-                    }
+</div>
 
-                    <button type="submit">
+</div>
 
-                        Login
+<div className="login-card">
 
-                    </button>
+<h1 className="login-title">
 
-                </form>
+Sign In
 
-            </div>
+</h1>
 
-        </div>
+<p className="login-description">
+
+Access your Smart Study Planner
+
+</p>
+
+<form
+
+className="login-form"
+
+onSubmit={handleLogin}
+
+>
+
+<div className="input-group">
+
+<div className="input-box">
+
+<FaEnvelope className="input-icon"/>
+
+<input
+
+type="email"
+
+placeholder="Email Address"
+
+value={email}
+
+onChange={(e)=>setEmail(e.target.value)}
+
+/>
+
+</div>
+
+{
+
+emailError &&
+
+<p className="error-text">
+
+{emailError}
+
+</p>
+
+}
+
+</div>
+
+<div className="input-group">
+
+<div className="input-box">
+
+<FaLock className="input-icon"/>
+
+<input
+
+type="password"
+
+placeholder="Password"
+
+value={password}
+
+onChange={(e)=>setPassword(e.target.value)}
+
+/>
+
+</div>
+
+{
+
+passwordError &&
+
+<p className="error-text">
+
+{passwordError}
+
+</p>
+
+}
+
+</div>
+
+{
+
+serverError &&
+
+<p className="error-text">
+
+{serverError}
+
+</p>
+
+}
+
+<button
+
+type="submit"
+
+className="login-btn"
+
+>
+
+Login →
+
+</button>
+
+</form>
+
+<div className="register-text">
+
+Don't have an account?
+
+<span
+
+onClick={()=>navigate("/register")}
+
+>
+
+ Register
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
     );
+
 }
 
 export default Login;

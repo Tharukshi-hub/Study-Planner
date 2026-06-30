@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Dashbord.css";
 import { Link } from "react-router-dom";
 import Topbar from "./Topbar";
+import DashbordIcon from "@mui/icons-material/Dashboard";
+import SubjectsIcon from "@mui/icons-material/School";
 
 function Dashbord() {
 
@@ -210,11 +212,15 @@ tasks.forEach((task) => {
                 <ul className="menu">
 
                     <li className="active">
+                        <DashbordIcon />
                         Dashboard
                     </li>
 
                     <Link to="/Subject">
-                        <li>Subjects</li>
+                        <li>
+                            <SubjectsIcon />
+                            Subjects
+                        </li>
                     </Link>
 
                     <Link to="/Task">
@@ -258,67 +264,73 @@ tasks.forEach((task) => {
 
                     {/* TODAY TARGETS */}
                     <Link to="/Task" className="card-link">
-                        <div className="dashboard-card">
 
-                            <h2>
-                                Today's Targets
-                            </h2>
-                            {
-                                todayTasks.length > 0 ?
+<div className="dashboard-card">
 
-                                    todayTasks.map((task) => (
+<div className="card-icon">🎯</div>
 
-                                        <p key={task._id}>
-                                            • {task.taskName}
-                                        </p>
+<h2>Today's Targets</h2>
 
-                                    ))
+<p className="card-subtitle">
+Stay focused on today's priorities.
+</p>
 
-                                    :
+{
 
-                                    <p>No tasks for today</p>
-                                }
+todayTasks.length>0 ?
 
-                            {
+todayTasks.map(task=>(
 
-                                timetable.slice(0, 3)
-                                    .map((item, index) => (
+<p key={task._id}>
 
-                                        <p key={index}>
-                                            {item.task}
-                                        </p>
+✅ {task.taskName}
 
-                                    ))
+</p>
 
-                            }
+))
 
-                        </div>
-                    </Link>
+:
 
-                    {/* UPCOMING TASKS */}
-                  <Link to="/Task" className="card-link">
-                    <div className="dashboard-card">
+<p>
 
-                        <h2>
-                            Upcoming Tasks
-                        </h2>
+No tasks for today
 
-                        {
+</p>
 
-                            pendingTasks.slice(0, 4)
-                                .map((task) => (
+}
 
-                                    <p key={task._id}>
-                                        • {task.taskName}
-                                    </p>
+</div>
 
-                                ))
+</Link>
+                    <Link to="/Task" className="card-link">
 
-                        }
+<div className="dashboard-card">
 
-                    </div>
-                   </Link> 
+<div className="card-icon">📅</div>
 
+<h2>Upcoming Tasks</h2>
+
+<p className="card-subtitle">
+Deadlines approaching.
+</p>
+
+{
+
+pendingTasks.slice(0,4).map(task=>(
+
+<p key={task._id}>
+
+⏰ {task.taskName}
+
+</p>
+
+))
+
+}
+
+</div>
+
+</Link>
                     {/* AI SUGGESTIONS */}
                     <Link to = "/Suggestions" className="card-link">
                         <div className="dashboard-card">

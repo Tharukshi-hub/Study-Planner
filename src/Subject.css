@@ -134,6 +134,12 @@ tbody tr:hover{
     color:#dc2626;
 }
 
+.edit-btn svg,
+.delete-btn svg {
+    font-size: 15px !important;
+}
+
+
 /* ACTION BUTTONS */
 
 /*.edit-btn{

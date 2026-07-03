@@ -8,7 +8,6 @@ function Suggestions() {
     const [subjects, setSubjects] = useState([]);
     const [tasks, setTasks] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
-    //const [slots, setSlots] = useState([]);
 
     const getSubjects = async () => {
 

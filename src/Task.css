@@ -228,6 +228,11 @@ tbody tr:hover{
 
 /* ================= ACTION BUTTONS ================= */
 
+.edit-btn svg,
+.delete-btn svg {
+    font-size: 15px !important;
+}
+
 .edit-btn{
 
     background:linear-gradient(135deg,#2563eb,#60a5fa);

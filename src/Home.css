@@ -72,50 +72,30 @@ body{
 }
 
 .top-badge{
-
     display:inline-block;
-
     padding:10px 18px;
-
     background:rgba(255,255,255,.15);
-
     border-radius:40px;
-
-    margin-bottom:25px;
-
     backdrop-filter:blur(10px);
-
     font-size:14px;
 }
 
 .hero-left h1{
-
     font-size:58px;
-
     line-height:1.15;
-
     margin-bottom:25px;
-
     font-weight:700;
-
 }
 
 .hero-left h1 span{
-
     color:#60a5fa;
-
 }
 
 .hero-left p{
-
     color:#dbeafe;
-
     font-size:18px;
-
     line-height:1.8;
-
     margin-bottom:35px;
-
 }
 
 /* Features */

@@ -141,7 +141,7 @@ body{
 
 .hard{
 
-    border-left-color:#7c3aed;
+    border-left-color:#0962e967;
     background:#f8f4ff;
 
 }
@@ -150,7 +150,7 @@ body{
 
 .priority{
 
-    border-left-color:#ec4899;
+    border-left-color:#ecc648;
     background:#fff0f8;
 
 }
@@ -159,7 +159,7 @@ body{
 
 .deadline{
 
-    border-left-color:#2563eb;
+    border-left-color:#f049a5;
     background:#eef6ff;
 
 }
@@ -177,7 +177,7 @@ body{
 
 .default{
 
-    border-left-color:#64748b;
+    border-left-color:#c96be6;
 
 }
 
@@ -185,7 +185,7 @@ body{
 
 .none{
 
-    border-left-color:#94a3b8;
+    border-left-color:#70dce4;
     background:#f8fafc;
 
 }

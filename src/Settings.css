@@ -67,22 +67,28 @@ body.dark-mode{
     padding:40px;
 }
 
-.top-section{
-    margin-bottom:40px;
+.top-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
-.top-section h1{
-    margin:0;
-    color:#24124d;
-    font-size:40px;
+/* h1 normal */
+.top-section h1 {
+    margin: 0;
+    font-size: 40px;
+    color: #1e293b;
+    font-weight: 700;
 }
 
-.top-section p{
-    color:#666;
-    margin-top:8px;
+/* p clean under h1 */
+.top-section p {
+    margin-top: 6px;   /* small natural spacing */
+    color: #64748b;
     font-size: 16px;
 }
-
 /* SETTINGS CONTAINER */
 .settings-container{
     display:grid;

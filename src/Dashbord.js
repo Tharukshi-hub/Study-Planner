@@ -321,28 +321,33 @@ tasks.forEach((task) => {
                   <Link to="/Timetable" className="card-link">
                     <div className="dashboard-card">
 
-                        <h2>
-                            Study Schedule
-                        </h2>
+    <h2>Study Schedule</h2>
 
-                        {
+    {timetable.length > 0 ? (
 
-                            timetable.slice(0, 4)
-                                .map((item, index) => (
+        timetable.slice(0,4).map((item,index)=>(
 
-                                    <p key={index}>
-                                        {item.startTime}
-                                        {" - "}
-                                        {item.endTime}
-                                        {" "}
-                                        {item.subject}
-                                    </p>
+            <div className="schedule-item" key={index}>
 
-                                ))
+                <span className="schedule-time">
+                    {item.startTime} - {item.endTime}
+                </span>
 
-                        }
+                <span className="schedule-subject">
+                    {item.subject}
+                </span>
 
-                    </div>
+            </div>
+
+        ))
+
+    ) : (
+
+        <p>No timetable generated</p>
+
+    )}
+
+</div>
                     </Link>
                     {/* PROGRESS */}
                   <Link to="/Progress" className="card-link">

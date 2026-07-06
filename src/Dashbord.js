@@ -3,6 +3,8 @@ import "./Dashbord.css";
 import { Link } from "react-router-dom";
 import Topbar from "./Topbar";
 import Sidebar from "./Sidebar";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import AssignmentIcon from "@mui/icons-material/Assignment";
 
 function Dashbord() {
     const [tasks, setTasks] = useState([]);
@@ -222,7 +224,7 @@ tasks.forEach((task) => {
 
                 <div className="mini-task-card" key={task._id}>
 
-                    <div className="task-icon">🎯</div>
+                    <div className="task-icon"><AssignmentTurnedInIcon /></div>
 
                     <h4>{task.taskName}</h4>
 
@@ -273,7 +275,7 @@ tasks.forEach((task) => {
 
                 <div className="mini-task-card upcoming" key={task._id}>
 
-                    <div className="task-icon">📄</div>
+                    <div className="task-icon"><AssignmentIcon /></div>
 
                     <h4>{task.taskName}</h4>
 

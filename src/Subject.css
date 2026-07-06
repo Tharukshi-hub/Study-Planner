@@ -139,21 +139,6 @@ tbody tr:hover{
     font-size: 15px !important;
 }
 
-
-/* ACTION BUTTONS */
-
-/*.edit-btn{
-    background:linear-gradient(135deg,#2563eb,#60a5fa);
-    color:white;
-    border:none;
-    padding:9px 16px;
-    border-radius:10px;
-    cursor:pointer;
-    margin-right:10px;
-    transition:.3s;
-    font-weight:600;
-}
-
 .edit-btn:hover{
     transform:translateY(-3px);
     box-shadow:0 10px 18px rgba(37,99,235,.25);
@@ -284,4 +269,56 @@ tbody tr:hover{
 table{
     min-width:700px;
     }
+}
+
+/* DARK MODE */
+
+body.dark-mode .subjects-page{
+    background:#0f172a;
+}
+
+body.dark-mode .main-content{
+    background:#0f172a;
+}
+
+body.dark-mode .top-section h1{
+    color:white;
+}
+
+body.dark-mode .top-section p{
+    color:#cbd5e1;
+}
+
+body.dark-mode .table-section,
+body.dark-mode .form-section{
+    background:#1e293b;
+    border-color:#334155;
+}
+
+body.dark-mode th,
+body.dark-mode td{
+    color:white;
+}
+
+body.dark-mode thead{
+    background:#334155;
+}
+
+body.dark-mode tbody tr:hover{
+    background:#334155;
+}
+
+body.dark-mode .form-section h3{
+    color:white;
+}
+
+body.dark-mode .form-section input,
+body.dark-mode .form-section select{
+    background:#334155;
+    color:white;
+    border-color:#475569;
+}
+
+body.dark-mode .form-section input::placeholder{
+    color:#cbd5e1;
 }

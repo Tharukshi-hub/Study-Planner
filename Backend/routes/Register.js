@@ -18,39 +18,25 @@ router.put("/change-password/:id", async (req, res) => {
         );
 
         const isMatch = await bcrypt.compare(
-
             currentPassword,
-
             user.password
-
         );
 
         if(!isMatch){
 
             return res.status(400).json({
-
                 message:"Current Password Incorrect"
-
             });
 
         }
 
         const hashedPassword = await bcrypt.hash(
-
-            newPassword,
-
-            10
-
-        );
+            newPassword, 10 );
 
         user.password = hashedPassword;
-
         await user.save();
-
         res.json({
-
             message:"Password Updated"
-
         });
 
     }
@@ -58,26 +44,21 @@ router.put("/change-password/:id", async (req, res) => {
     catch(error){
 
         console.log(error);
-
         res.status(500).json({
-
             message:"Server Error"
-
         });
 
     }
 
 });
-// REGISTER
 
+// REGISTER
 router.post("/register", async (req, res) => {
 
     try{
-
         const { name, email, password } = req.body;
 
         // Check existing email
-
         const existingUser = await User.findOne({ email });
 
         if(existingUser){
@@ -88,11 +69,9 @@ router.post("/register", async (req, res) => {
         }
 
         // Hash password
-
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Create new user
-
         const newUser = new User({
 
             name,
@@ -102,7 +81,6 @@ router.post("/register", async (req, res) => {
         });
 
         // Save user
-
         await newUser.save();
 
         res.status(201).json({
@@ -112,28 +90,22 @@ router.post("/register", async (req, res) => {
     }
 
     catch(error){
-
         console.log(error);
-
         res.status(500).json({
             message:"Server Error"
         });
-
     }
 });
 
 // LOGIN
-
  router.post("/login", async (req, res) => {
 
    try{
 
       const { email, password } = req.body;
-
       const existingUser = await User.findOne({ email });
 
       if(!existingUser){
-
          return res.status(400).json({
             message:"Email not found"
          });
@@ -145,24 +117,18 @@ router.post("/register", async (req, res) => {
       );
 
       if(!isMatch){
-
          return res.status(400).json({
             message:"Incorrect password"
          });
       }
 
       res.status(200).json({
-
          message:"Login Successful",
-         
+        
          user:{
-
             _id: existingUser._id,
-
             name: existingUser.name,
-
             email: existingUser.email
-
          }
 
       });
@@ -170,9 +136,7 @@ router.post("/register", async (req, res) => {
    }
 
    catch(error){
-
       console.log(error);
-
       res.status(500).json({
          message:"Server Error"
       });

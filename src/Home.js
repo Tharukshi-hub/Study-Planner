@@ -13,10 +13,6 @@ function Home() {
   return (
     <div className="home-container">
 
-      <div className="bg-circle circle1"></div>
-      <div className="bg-circle circle2"></div>
-      <div className="bg-circle circle3"></div>
-
       <div className="hero">
 
         {/* LEFT SIDE */}
@@ -56,7 +52,7 @@ function Home() {
 
             <Link to="/register">
               <button className="btn-register">
-                Get Started →
+                Get Started 
               </button>
             </Link>
 

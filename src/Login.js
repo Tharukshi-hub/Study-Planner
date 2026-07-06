@@ -134,11 +134,8 @@ Continue your smart learning journey and stay ahead with organised study plannin
 
 </p>
 
-<img
-
-src="./photo.webp"
-
-alt="student"
+<img src="./photo.webp"
+     alt="student"
 
 className="login-image"
 

@@ -1,15 +1,6 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
 body{
     background:#f4f7ff;
 }
-
-/* =========================== */
 
 .register-page{
     width:100%;
@@ -19,9 +10,7 @@ body{
     overflow:hidden;
 }
 
-/* ===========================
-        LEFT SIDE
-=========================== */
+/* LEFT SIDE */
 
 .register-left{
     flex:1.15;
@@ -118,23 +107,15 @@ body{
 }
 
 .feature-box{
-
     background:white;
-
     border-radius:18px;
-
     padding:18px;
-
-    box-shadow:
-    0 12px 30px rgba(37,99,235,.08);
-
+    box-shadow:0 12px 30px rgba(37,99,235,.08);
     transition:.35s;
 }
 
 .feature-box:hover{
-
     transform:translateY(-8px);
-
 }
 
 .feature-icon{
@@ -176,9 +157,7 @@ body{
     color:#6b7280;
 }
 
-/* ===========================
-        RIGHT SIDE
-=========================== */
+/* RIGHT SIDE */
 
 .register-right{
     flex:1;
@@ -191,23 +170,15 @@ body{
 /* Card */
 
 .glass-card{
-
     width:430px;
-
     background:white;
-
     border-radius:30px;
-
     padding:40px;
-
-    box-shadow:
-    0 25px 60px rgba(37,99,235,.15);
-
+    box-shadow:0 25px 60px rgba(37,99,235,.15);
     animation:fadeUp .7s;
 }
 
 @keyframes fadeUp{
-
     from{
         opacity:0;
         transform:translateY(40px);
@@ -234,35 +205,21 @@ body{
 /* Inputs */
 
 .glass-card input{
-
     width:100%;
-
     padding:15px 18px;
-
     margin-top:15px;
-
     border-radius:14px;
-
     border:2px solid #edf2ff;
-
     background:#f8fbff;
-
     font-size:15px;
-
     transition:.3s;
-
     outline:none;
 }
 
 .glass-card input:focus{
-
     border-color:#2563eb;
-
     background:white;
-
-    box-shadow:
-    0 0 0 4px rgba(37,99,235,.12);
-
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
 }
 
 .glass-card input::placeholder{
@@ -282,66 +239,42 @@ body{
 /* Button */
 
 .glass-card button{
-
     width:100%;
-
     margin-top:25px;
-
     padding:15px;
-
     border:none;
-
     border-radius:14px;
-
     font-size:16px;
-
     font-weight:700;
-
     color:white;
-
     cursor:pointer;
-
     background:linear-gradient(135deg,#2563eb,#6d4aff);
-
     transition:.35s;
 }
 
 .glass-card button:hover{
-
     transform:translateY(-4px);
-
-    box-shadow:
-    0 18px 35px rgba(37,99,235,.35);
-
+    box-shadow:0 18px 35px rgba(37,99,235,.35);
 }
 
 /* Bottom */
 
 .login-link{
-
     text-align:center;
-
     margin-top:22px;
-
     color:#6b7280;
-
     font-size:14px;
 }
 
 .login-link a{
-
     color:#2563eb;
-
     font-weight:700;
-
     text-decoration:none;
 }
 
 .login-link a:hover{
     text-decoration:underline;
 }
-
-/* =========================== */
 
 @media(max-width:1100px){
 

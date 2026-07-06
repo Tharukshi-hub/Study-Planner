@@ -5,11 +5,9 @@
     z-index: 1000;
     width: 100%;
     padding: 12px 20px;
-
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -26,17 +24,13 @@
     width: 42px;
     height: 42px;
     border-radius: 12px;
-
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
-
     border: 1px solid rgba(255, 255, 255, 0.5);
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: all 0.25s ease;
     color: #333;
 }
@@ -57,19 +51,15 @@
     position: absolute;
     top: -6px;
     right: -6px;
-
     background: linear-gradient(135deg, #ff4d4d, #ff1a75);
     color: white;
-
     font-size: 10px;
     width: 18px;
     height: 18px;
-
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-
     box-shadow: 0 4px 10px rgba(255,0,0,0.3);
 }
 
@@ -78,18 +68,13 @@
     position: absolute;
     right: 0;
     top: 55px;
-
     width: 260px;
     padding: 12px;
-
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(20px);
-
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 16px;
-
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-
     animation: fadeIn 0.25s ease;
 }
 
@@ -102,10 +87,8 @@
 .notify-glass {
     padding: 8px;
     font-size: 13px;
-
     border-radius: 10px;
     margin-bottom: 6px;
-
     background: rgba(255,255,255,0.5);
     transition: 0.2s;
 }
@@ -119,20 +102,14 @@
 .profile-glass {
     width: 42px;
     height: 42px;
-
     border-radius: 12px;
-
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
-
     border: 1px solid rgba(255, 255, 255, 0.5);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     color: #333;
-
     transition: 0.25s;
 }
 

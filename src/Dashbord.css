@@ -393,3 +393,72 @@ body{
     color:#2563eb;
     background:none !important;
 }
+
+/* DARK MODE - DASHBOARD */
+
+body.dark-mode{
+    background:#0f172a;
+}
+
+/* Main content */
+
+body.dark-mode .main-content{
+    background:#0f172a;
+}
+
+/* Welcome text */
+
+body.dark-mode .welcome-text{
+    color:#f8fafc;
+}
+
+/* Cards */
+
+body.dark-mode .dashboard-card{
+    background:#1e293b;
+    border:1px solid #334155;
+    color:#f8fafc;
+}
+
+body.dark-mode .dashboard-card h2{
+    color:#f8fafc;
+}
+
+body.dark-mode .dashboard-card p{
+    background:#334155;
+    color:#e2e8f0;
+}
+
+/* Schedule */
+
+body.dark-mode .schedule-item{
+    background:#334155;
+}
+
+body.dark-mode .schedule-subject{
+    color:white;
+}
+
+body.dark-mode .schedule-time{
+    color:#60a5fa;
+}
+
+/* Progress */
+
+body.dark-mode .progress-inner{
+    background:#1e293b;
+}
+
+body.dark-mode .progress-inner span{
+    color:white;
+}
+
+body.dark-mode .progress-message{
+    color:#93c5fd;
+}
+
+/* Small cards */
+
+body.dark-mode .mini-task-card{
+    color:white;
+}

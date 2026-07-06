@@ -4,7 +4,6 @@ const Timetable = require("../model/Timetable");
 
 
 // ADD TIME SLOT
-
  router.post("/add", async (req,res)=>{
     console.log(req.body);
    const {
@@ -15,7 +14,6 @@ const Timetable = require("../model/Timetable");
    } = req.body;
 
    const newSlot = new Timetable({
-
       userId,
       date,
       startTime,
@@ -33,15 +31,12 @@ const Timetable = require("../model/Timetable");
 
 
 // GET USER TIMETABLE
-
 router.get("/:userId", async (req,res) => {
 
     try{
 
         const timetable = await Timetable.find({
-
             userId:req.params.userId
-
         });
 
         res.json(timetable);

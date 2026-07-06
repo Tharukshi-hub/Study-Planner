@@ -35,21 +35,16 @@ router.post("/generate/:userId", async (req, res) => {
 
         const userId = req.params.userId;
 
-        // කලින් notification delete කරනවා
+        // delete existing notifications
         await Notification.deleteMany({ userId });
-
         const tasks = await Task.find({ userId });
-
         const notifications = [];
-
         const today = new Date();
 
         tasks.forEach(task => {
 
             if (!task.deadline) return;
-
             const deadline = new Date(task.deadline);
-
             const diffDays = Math.ceil(
                 (deadline - today) / (1000 * 60 * 60 * 24)
             );

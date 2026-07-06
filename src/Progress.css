@@ -324,3 +324,55 @@
     border-radius:50%;
     background:#ef4444;
 }
+
+/* DARK MODE */
+
+body.dark-mode .progress-page{
+    background:#0f172a;
+}
+
+body.dark-mode .main-content{
+    background:#0f172a;
+}
+
+body.dark-mode .top-section h1{
+    color:#ffffff;
+}
+
+body.dark-mode .top-section p{
+    color:#cbd5e1;
+}
+
+body.dark-mode .card,
+body.dark-mode .progress-card,
+body.dark-mode .subject-progress-card{
+    background:#1e293b;
+    color:white;
+}
+
+body.dark-mode .card h2,
+body.dark-mode .card h3,
+body.dark-mode .progress-card h3,
+body.dark-mode .subject-progress-card h3{
+    color:white;
+}
+
+body.dark-mode .subject-row span{
+    color:white;
+}
+
+body.dark-mode .subject-bar{
+    background:#334155;
+}
+
+body.dark-mode .circle-inner{
+    background:#1e293b;
+}
+
+body.dark-mode .circle-inner h2{
+    color:white;
+}
+
+body.dark-mode .legend-item{
+    color:white;
+}

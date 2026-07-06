@@ -1,18 +1,12 @@
 const express = require("express");
-
 const router = express.Router();
-
 const Subject = require("../model/Subject");
 
 
 // GET ALL SUBJECTS
-
 router.get("/:userId", async(req,res)=>{
-
    const subjects = await Subject.find({
-
       userId:req.params.userId
-
    });
 
    res.json(subjects);
@@ -21,13 +15,10 @@ router.get("/:userId", async(req,res)=>{
 
 
 // ADD SUBJECT
-
 router.post("/add", async (req, res) => {
 
     try{
-
         const {
-
             userId,
             subjectName,
             difficulty,
@@ -35,7 +26,6 @@ router.post("/add", async (req, res) => {
         } = req.body;
 
         const newSubject = new Subject({
-
             userId,
             subjectName,
             difficulty,
@@ -62,18 +52,15 @@ router.post("/add", async (req, res) => {
 
 });
 
-// UPDATE SUBJECT
 
+// UPDATE SUBJECT
 router.put("/update/:id", async (req, res) => {
 
     try {
 
         await Subject.findByIdAndUpdate(
-
             req.params.id,
-
             req.body
-
         );
 
         res.json({
@@ -92,8 +79,8 @@ router.put("/update/:id", async (req, res) => {
 
 });
 
-// DELETE SUBJECT
 
+// DELETE SUBJECT
 router.delete("/delete/:id", async (req, res) => {
 
     try {

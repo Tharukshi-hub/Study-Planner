@@ -63,7 +63,6 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    /*margin-bottom:30px;*/
 }
 
 .top-section h1{
@@ -154,3 +153,47 @@ body{
     background:#2365eb;
 }
 
+/*  DARK MODE */
+
+body.dark-mode .timetable-page{
+    background:#0f172a;
+}
+
+body.dark-mode .main-content{
+    background:#0f172a;
+}
+
+body.dark-mode .top-section h1{
+    color:white;
+}
+
+body.dark-mode .top-section p{
+    color:#cbd5e1;
+}
+
+body.dark-mode .content-section,
+body.dark-mode .saved-slots,
+body.dark-mode .table-section{
+    background:#1e293b;
+    color:white;
+}
+
+body.dark-mode .content-section input,
+body.dark-mode .content-section select{
+    background:#334155;
+    color:white;
+    border:1px solid #475569;
+}
+
+body.dark-mode .content-section input::placeholder{
+    color:#cbd5e1;
+}
+
+body.dark-mode table{
+    color:white;
+}
+
+body.dark-mode th,
+body.dark-mode td{
+    color:white;
+}

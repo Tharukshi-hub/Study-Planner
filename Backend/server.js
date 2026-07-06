@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
 const RegisterRoutes = require("./routes/Register");
 const SubjectRoutes = require("./routes/Subject");
 const TaskRoutes = require("./routes/Task");
@@ -16,18 +15,15 @@ app.use(express.json());
 
 
 // MongoDB connection
-
 mongoose.connect(
     "mongodb://localhost:27017/studyplanner"
 )
 
 .then(() => console.log("MongoDB Connected"))
-
 .catch((err) => console.log(err));
 
 
 // Routes
-
 app.use("/api/register", RegisterRoutes);
 app.use("/api/subject", SubjectRoutes);
 app.use("/api/task", TaskRoutes);
@@ -36,7 +32,6 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/notification", NotificationRoutes);
 
 // Server
-
 app.listen(5000, () => {
 
     console.log("Server running on port 5000");

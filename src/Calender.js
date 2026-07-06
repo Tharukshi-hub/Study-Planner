@@ -56,62 +56,28 @@ const nextMonth = () => {
 
         new Date(
             currentDate.getFullYear(),
-            currentDate.getMonth() + 1,
-            1
+            currentDate.getMonth() + 1, 1
         )
 
     );
 
 };
 
-const year =
-    currentDate.getFullYear();
-
-const month =
-    currentDate.getMonth();
-
-const firstDay =
-    new Date(
-        year,
-        month,
-        1
-    ).getDay();
-
-const daysInMonth =
-    new Date(
-        year,
-        month + 1,
-        0
-    ).getDate();
-
-const monthName =
-    currentDate.toLocaleString(
-        "default",
-        {
-            month: "long"
-        }
+const year = currentDate.getFullYear();
+const month = currentDate.getMonth();
+const firstDay = new Date( year, month, 1 ).getDay();
+const daysInMonth = new Date( year, month + 1, 0 ).getDate();
+const monthName = currentDate.toLocaleString( "default",
+        { month: "long" }
     );
-
 const calendarDays = [];
 
-for (
-    let i = 0;
-    i < firstDay;
-    i++
-) {
-
+for (let i = 0; i < firstDay; i++) {
     calendarDays.push(null);
-
 }
 
-for (
-    let day = 1;
-    day <= daysInMonth;
-    day++
-) {
-
+for (let day = 1; day <= daysInMonth; day++) {
     calendarDays.push(day);
-
 }
 
 return (
@@ -145,11 +111,9 @@ return (
                     </button>
 
                     <h2>
-
                         {monthName}
                         {" "}
                         {year}
-
                     </h2>
 
                     <button
@@ -226,8 +190,7 @@ return (
 
                                     <div
                                         key={index}
-                                        className="day"
-                                    >
+                                        className="day">
 
                                         <span>
                                             {day}
@@ -235,73 +198,34 @@ return (
 
                                         {
 
-                                            taskForDay.map(
-
-                                                (
-                                                    task,
-                                                    i
-                                                ) => (
+                                            taskForDay.map(( task, i) => (
 
                                                    <p
-    key={i}
-    className={
+                                                        key={i}
+                                                        className={
+                                                            task.status === "Completed" ?
+                                                            "task-completed" :
+                                                            (
+                                                                new Date(task.deadline)<
+                                                                new Date() ?
+                                                                "task-overdue" : "task-pending"
+                                                            )} >
 
-        task.status === "Completed"
-
-        ?
-
-        "task-completed"
-
-        :
-
-        (
-            new Date(task.deadline)
-            <
-            new Date()
-
-            ?
-
-            "task-overdue"
-
-            :
-
-            "task-pending"
-        )
-
-    }
->
-
-    {task.taskName}
-
-</p>
-
+                                                        {task.taskName}
+                                                    </p>
                                                 )
-
                                             )
-
                                         }
-
                                     </div>
-
                                 );
-
                             }
-
                         )
-
                     }
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 );
 
-
 }
-
 export default Calender;

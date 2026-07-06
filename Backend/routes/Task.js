@@ -3,27 +3,24 @@ const router = express.Router();
 const Task = require("../model/Task");
 const upload = require("../middlware/upload");
 
+
 // GET ALL TASKS
-
 router.get("/:userId", async (req, res) => {
-
     try {
-
         const tasks = await Task.find({
             userId: req.params.userId
         });
 
         const today = new Date();
 
-        // අද දිනයේ time එක remove කරනවා
+        // remove today's time
         today.setHours(0, 0, 0, 0);
-
         for (let task of tasks) {
 
             const deadline = new Date(task.deadline);
             deadline.setHours(0, 0, 0, 0);
 
-            // Pending task එකක් deadline පැනලා නම් Overdue කරන්න
+            // if the task is pending and the deadline has passed, update the status to "Overdue"
             if (
                 task.status === "Pending" &&
                 deadline < today
@@ -37,7 +34,7 @@ router.get("/:userId", async (req, res) => {
 
         }
 
-        // Updated tasks නැවත database එකෙන් ගන්න
+        // get updated tasks again from the db
         const updatedTasks = await Task.find({
             userId: req.params.userId
         });
@@ -58,12 +55,11 @@ router.get("/:userId", async (req, res) => {
 
 });
 
-// ADD TASK
 
+// ADD TASK
 router.post("/add", upload.single("pdfFile"), async (req, res) => {
 
     try{
-
         const {
             userId,
             taskName,
@@ -102,8 +98,8 @@ router.post("/add", upload.single("pdfFile"), async (req, res) => {
 
 });
 
- // UPDATE TASK
 
+ // UPDATE TASK
 router.put(
     "/update/:id",
     upload.single("pdfFile"),
@@ -118,7 +114,7 @@ router.put(
                 status: req.body.status
             };
 
-            // PDF එකක් අලුතෙන් upload කළොත් විතරක් update කරන්න
+            // if a new PDF file is uploaded, update the pdfFile field
             if (req.file) {
                 updateData.pdfFile = req.file.filename;
             }
@@ -149,7 +145,6 @@ router.put(
 
 
 // DELETE TASK
-
 router.delete("/delete/:id", async (req, res) => {
 
     try {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Task.css";
 import Sidebar from "./Sidebar";
+import Topbar from "./Topbar";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
@@ -156,7 +157,7 @@ const handleDelete = async (id) => {
             {/* MAIN CONTENT */}
 
             <div className="main-content">
-
+                    <Topbar />
                 {/* TOP SECTION */}
 
                 <div className="top-section">
@@ -168,7 +169,7 @@ const handleDelete = async (id) => {
         className="add-task-btn"
         onClick={() => {
 
-            setShowForm(!showForm);
+            setShowForm(true);
             setEditingId(null);
             setTaskName("");
             setSubject("");
@@ -251,7 +252,7 @@ const handleDelete = async (id) => {
                     {/* FORM */}
                     {showForm && ( 
                     <div className="form-section">
-                        <h3>Add New Task</h3>
+                        <h3>{editingId ? 'Edit Task' : 'Add New Task'}</h3>
                         <input
                             type="text"
                             placeholder="Enter task name"
@@ -290,11 +291,10 @@ const handleDelete = async (id) => {
                             <option value="">  Select Status </option>
                             <option value="Pending"> Pending </option>
                             <option value="Completed"> Completed </option>
-                            <option value="Overdue"> Overdue </option>
                         </select>
                         <button
                             className="save-btn"
-                            onClick={handleAddTask} >Save Task
+                            onClick={handleAddTask} >
                             {editingId ? "Update Task" : "Save Task"}
                         </button>
                 </div>

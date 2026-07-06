@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 const Notification = require("../model/Notification");
 const Task = require("../model/Task");
 
@@ -104,6 +103,41 @@ router.post("/generate/:userId", async (req, res) => {
 
         res.json({
             message: "Notifications Generated"
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            message: "Server Error"
+        });
+
+    }
+
+});
+
+router.put("/read/:userId", async (req, res) => {
+
+    try {
+
+        await Notification.updateMany(
+
+            {
+                userId: req.params.userId,
+                read: false
+            },
+
+            {
+                read: true
+            }
+
+        );
+
+        res.json({
+            message: "Notifications marked as read"
         });
 
     }

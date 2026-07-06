@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Subject.css";
 import Sidebar from "./Sidebar";
+import Topbar from "./Topbar";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
@@ -97,6 +98,7 @@ const handleEdit = (subject) => {
             <Sidebar />
             {/* MAIN CONTENT */}
             <div className="main-content">
+                <Topbar />
                 {/* TOP */}
                 <div className="top-section">             
                     <div>
@@ -107,7 +109,7 @@ const handleEdit = (subject) => {
                         </p>
                     </div>
                      <button className="add-subject-btn" onClick={() => {
-                            setShowForm(!showForm);
+                            setShowForm(true);
                             setEditingId(null);
                             setSubjectName("");
                             setDifficulty("");
@@ -159,7 +161,7 @@ const handleEdit = (subject) => {
                     {/* FORM */}
                     { showForm &&( 
                     <div className="form-section">
-                        <h3>Add New Subject</h3>
+                        <h3>{editingId ? "Edit Subject" : "Add New Subject"}</h3>
                         <input
                             type="text"
                             placeholder="Enter subject name"
@@ -206,7 +208,7 @@ const handleEdit = (subject) => {
                         <button
                             className="save-btn"
                             onClick={handleAddSubject} >
-                            Save Subject
+                            {editingId ? "Update Subject" : "Save Subject"}
                         </button>
                     </div>
                     )}

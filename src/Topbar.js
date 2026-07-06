@@ -10,9 +10,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 function Topbar() {
     const [notifications, setNotifications] = useState([]);
     const [showNotifications, setShowNotifications] = useState(false);
-    const [darkMode, setDarkMode] = useState(
-        localStorage.getItem("darkMode") === "true"
-    );
+    const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
+    const [notificationCount, setNotificationCount] = useState(0);
 
     useEffect(() => {
         document.body.classList.toggle("dark-mode", darkMode);
@@ -28,7 +27,10 @@ function Topbar() {
         })
             .then(() => fetch(`http://localhost:5000/api/notification/${userId}`))
             .then((res) => res.json())
-            .then((data) => setNotifications(data))
+            .then((data) => {
+                setNotifications(data);
+                setNotificationCount(data.length);
+            })
             .catch((err) => console.log(err));
     }, []);
 
@@ -48,16 +50,28 @@ function Topbar() {
                 <div className="notification-wrapper">
                     <button
                         className="glass-btn"
-                        onClick={() =>
-                            setShowNotifications(!showNotifications)
-                        }
+                        onClick={async () => {
+
+                            setShowNotifications(!showNotifications);
+
+                            const userId = localStorage.getItem("userId");
+
+                            await fetch(
+                                `http://localhost:5000/api/notification/read/${userId}`,
+                                {
+                                    method: "PUT"
+                                }
+                            );
+
+                            setNotificationCount(0);
+
+                        }}
                     >
                         <NotificationsIcon />
                     </button>
-
-                    {notifications.length > 0 && (
+                    {notificationCount > 0 && (
                         <span className="badge-glass">
-                            {notifications.length}
+                            {notificationCount}
                         </span>
                     )}
 

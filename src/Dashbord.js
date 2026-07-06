@@ -218,7 +218,7 @@ tasks.forEach((task) => {
 
         <div className="today-target-grid">
 
-            {todayTasks.slice(0,3).map((task) => (
+            {todayTasks.map((task) => (
 
                 <div className="mini-task-card" key={task._id}>
 
@@ -269,7 +269,7 @@ tasks.forEach((task) => {
 
         <div className="today-target-grid">
 
-            {pendingTasks.slice(0,3).map((task)=>(
+            {pendingTasks.map((task)=>(
 
                 <div className="mini-task-card upcoming" key={task._id}>
 
@@ -325,7 +325,7 @@ tasks.forEach((task) => {
 
     {timetable.length > 0 ? (
 
-        timetable.slice(0,4).map((item,index)=>(
+        timetable.map((item,index)=>(
 
             <div className="schedule-item" key={index}>
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Timetable.css";
 import Sidebar from "./Sidebar";
+import Topbar from "./Topbar";
 
 function Timetable() {
 
@@ -160,6 +161,7 @@ try {
             {/* MAIN CONTENT */}
             <div className="main-content">
              <div className="top-section">
+                <Topbar />
                  <div>
                         <h1> My Timetable </h1>
                         <p> Generate your AI study timetable using available time and task priority. </p>

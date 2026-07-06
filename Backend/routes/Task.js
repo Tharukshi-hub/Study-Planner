@@ -5,14 +5,56 @@ const upload = require("../middlware/upload");
 
 // GET ALL TASKS
 
-router.get("/:userId", async(req,res)=>{
+router.get("/:userId", async (req, res) => {
 
-   const tasks = await Task.find({
-      userId:req.params.userId
+    try {
 
-   });
+        const tasks = await Task.find({
+            userId: req.params.userId
+        });
 
-   res.json(tasks);
+        const today = new Date();
+
+        // අද දිනයේ time එක remove කරනවා
+        today.setHours(0, 0, 0, 0);
+
+        for (let task of tasks) {
+
+            const deadline = new Date(task.deadline);
+            deadline.setHours(0, 0, 0, 0);
+
+            // Pending task එකක් deadline පැනලා නම් Overdue කරන්න
+            if (
+                task.status === "Pending" &&
+                deadline < today
+            ) {
+
+                task.status = "Overdue";
+
+                await task.save();
+
+            }
+
+        }
+
+        // Updated tasks නැවත database එකෙන් ගන්න
+        const updatedTasks = await Task.find({
+            userId: req.params.userId
+        });
+
+        res.json(updatedTasks);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            message: "Server Error"
+        });
+
+    }
 
 });
 

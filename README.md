@@ -1,7 +1,8 @@
-Smart Study Planner with AI Suggestions
+</> Markdown
+## Smart Study Planner with AI Suggestions
   A Mern-stack web application designed to help students organize their studies, manage academic tasks and plan their study schedules       efficiently.
 
-Purpose
+## Purpose
   The Smart Study Planner was developed to provide students with a centralized platform for organizing their academic activities and        managing their study time effectively.
 
 Features

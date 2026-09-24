@@ -46,49 +46,49 @@
         
 ## Screenshots
   ## Login
-    <img width="1366" height="768" alt="SS Login" src="https://github.com/user-attachments/assets/f428abb6-9fd6-45c8-9bdd-8a49eba2dc5f" />
+<img width="1366" height="768" alt="SS Login" src="https://github.com/user-attachments/assets/f428abb6-9fd6-45c8-9bdd-8a49eba2dc5f" />
 
   ## Register
-    <img width="1366" height="768" alt="SS Register" src="https://github.com/user-attachments/assets/d8888154-aea5-4946-977a-2c7ed8afdc4b" />
+<img width="1366" height="768" alt="SS Register" src="https://github.com/user-attachments/assets/d8888154-aea5-4946-977a-2c7ed8afdc4b" />
 
   ## Home 
-    <img width="1366" height="768" alt="SS Home" src="https://github.com/user-attachments/assets/acfb0f32-729c-4c12-bffa-31b22eac7312" />
+<img width="1366" height="768" alt="SS Home" src="https://github.com/user-attachments/assets/acfb0f32-729c-4c12-bffa-31b22eac7312" />
 
   ## Dashbord
-    <img width="1366" height="768" alt="SS Dashboard" src="https://github.com/user-attachments/assets/c5c4a8c1-8d1e-4e70-90d0-f00807918707" />
+<img width="1366" height="768" alt="SS Dashboard" src="https://github.com/user-attachments/assets/c5c4a8c1-8d1e-4e70-90d0-f00807918707" />
 
   ## Subject
-    <img width="1366" height="768" alt="SS Subject" src="https://github.com/user-attachments/assets/dada6fb5-bc51-4c41-bb0a-1e1716c279fe" />
+<img width="1366" height="768" alt="SS Subject" src="https://github.com/user-attachments/assets/dada6fb5-bc51-4c41-bb0a-1e1716c279fe" />
 
   ## Task
-    <img width="1366" height="768" alt="SS Task" src="https://github.com/user-attachments/assets/b18eb821-035c-4212-b49c-02ad69bf7d64" />
+<img width="1366" height="768" alt="SS Task" src="https://github.com/user-attachments/assets/b18eb821-035c-4212-b49c-02ad69bf7d64" />
 
   ## Timetable
-    <img width="1366" height="768" alt="SS Timetable" src="https://github.com/user-attachments/assets/34dd7e0a-0fe5-4946-a3a7-57d61c063745" />
+<img width="1366" height="768" alt="SS Timetable" src="https://github.com/user-attachments/assets/34dd7e0a-0fe5-4946-a3a7-57d61c063745" />
 
   ## Progress
-    <img width="1366" height="768" alt="SS Progress" src="https://github.com/user-attachments/assets/bd31e19a-db62-49ad-bf5a-d15e080a7d45" />
+<img width="1366" height="768" alt="SS Progress" src="https://github.com/user-attachments/assets/bd31e19a-db62-49ad-bf5a-d15e080a7d45" />
 
   ## AI Suggestions
-    <img width="1366" height="768" alt="SS Suggestions" src="https://github.com/user-attachments/assets/a1816bd5-e581-4eae-812e-73ef8049452e" />
+<img width="1366" height="768" alt="SS Suggestions" src="https://github.com/user-attachments/assets/a1816bd5-e581-4eae-812e-73ef8049452e" />
 
   ## Calender
-      <img width="1366" height="768" alt="SS Calendar" src="https://github.com/user-attachments/assets/f8aa92e3-21d3-4a0e-94ba-29e615389ca2" />
+<img width="1366" height="768" alt="SS Calendar" src="https://github.com/user-attachments/assets/f8aa92e3-21d3-4a0e-94ba-29e615389ca2" />
   ## Settings
-      <img width="1366" height="768" alt="SS Settings" src="https://github.com/user-attachments/assets/83e84787-6dc2-4d88-81c8-d6db70c14855" />
+<img width="1366" height="768" alt="SS Settings" src="https://github.com/user-attachments/assets/83e84787-6dc2-4d88-81c8-d6db70c14855" />
 
 ## Future Improvements
-  Develop a mobile application 
-  Integrate Google Calendar 
-  Use Machine Learning for smarter recommendations 
-  Cloud-based deployment 
-  Push notifications 
-  Multi-user collaboration 
-  Online synchronization across devices
+  1) Develop a mobile application 
+  2) Integrate Google Calendar 
+  3) Use Machine Learning for smarter recommendations 
+  4) Cloud-based deployment 
+  5) Push notifications 
+  6) Multi-user collaboration 
+  7) Online synchronization across devices
   
 ## Developed by 
-Thrukshi Hansamali
-HNDIT Undergraduate
+  *Thrukshi Hansamali
+  *HNDIT Undergraduate
   
 
 
